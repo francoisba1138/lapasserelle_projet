@@ -66,12 +66,18 @@ class Lodging
      */
     private $certification;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Specification::class, mappedBy="lodging")
+     */
+    private $specifications;
+
     public function __construct()
     {
         $this->availabilities = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->activities = new ArrayCollection();
         $this->certification = new ArrayCollection();
+        $this->specifications = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -254,6 +260,33 @@ class Lodging
     public function removeCertification(user $certification): self
     {
         $this->certification->removeElement($certification);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Specification[]
+     */
+    public function getSpecifications(): Collection
+    {
+        return $this->specifications;
+    }
+
+    public function addSpecification(Specification $specification): self
+    {
+        if (!$this->specifications->contains($specification)) {
+            $this->specifications[] = $specification;
+            $specification->addLodging($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpecification(Specification $specification): self
+    {
+        if ($this->specifications->removeElement($specification)) {
+            $specification->removeLodging($this);
+        }
 
         return $this;
     }
