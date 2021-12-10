@@ -52,10 +52,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $message;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Lodging::class, mappedBy="certification")
+     */
+    private $certificated_lodgings;
+
     public function __construct()
     {
         $this->stays = new ArrayCollection();
         $this->reviews = new ArrayCollection();
+        $this->certificated_lodgings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -211,6 +217,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Lodging[]
+     */
+    public function getCertificatedLodgings(): Collection
+    {
+        return $this->certificated_lodgings;
+    }
+
+    public function addCertificatedLodging(Lodging $certificatedLodging): self
+    {
+        if (!$this->certificated_lodgings->contains($certificatedLodging)) {
+            $this->certificated_lodgings[] = $certificatedLodging;
+            $certificatedLodging->addCertification($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCertificatedLodging(Lodging $certificatedLodging): self
+    {
+        if ($this->certificated_lodgings->removeElement($certificatedLodging)) {
+            $certificatedLodging->removeCertification($this);
+        }
 
         return $this;
     }

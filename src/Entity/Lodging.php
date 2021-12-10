@@ -61,11 +61,17 @@ class Lodging
      */
     private $activities;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=user::class, inversedBy="certificated_lodgings")
+     */
+    private $certification;
+
     public function __construct()
     {
         $this->availabilities = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->activities = new ArrayCollection();
+        $this->certification = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -224,6 +230,30 @@ class Lodging
                 $activity->setLodging(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|user[]
+     */
+    public function getCertification(): Collection
+    {
+        return $this->certification;
+    }
+
+    public function addCertification(user $certification): self
+    {
+        if (!$this->certification->contains($certification)) {
+            $this->certification[] = $certification;
+        }
+
+        return $this;
+    }
+
+    public function removeCertification(user $certification): self
+    {
+        $this->certification->removeElement($certification);
 
         return $this;
     }
