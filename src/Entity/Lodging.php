@@ -36,7 +36,7 @@ class Lodging
     private $host;
 
     /**
-     * @ORM\OneToOne(targetEntity=address::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Address::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $address;

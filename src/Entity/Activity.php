@@ -28,7 +28,7 @@ class Activity
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=lodging::class, inversedBy="activities")
+     * @ORM\ManyToOne(targetEntity=Lodging::class, inversedBy="activities")
      * @ORM\JoinColumn(nullable=false)
      */
     private $lodging;
