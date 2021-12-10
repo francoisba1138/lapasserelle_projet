@@ -28,6 +28,16 @@ class Address
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $zip_code;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adress;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +63,30 @@ class Address
     public function setUser(?user $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getZipCode(): ?int
+    {
+        return $this->zip_code;
+    }
+
+    public function setZipCode(int $zip_code): self
+    {
+        $this->zip_code = $zip_code;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
 
         return $this;
     }
