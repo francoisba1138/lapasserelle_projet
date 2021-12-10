@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-class Certification
+class specification_lodging
 {
     /**
      * @ORM\Id
@@ -23,13 +23,13 @@ class Certification
     /**
      * @ORM\Column(type="integer")
      */
-    private $user_id;
+    private $specification_id;
 
     public function setLodging_id($lodgingId){
         $this->lodging_id = $lodgingId;
     }
 
-    public function setUser_id($userId){
-        $this->user_id = $cuserId;
+    public function setSpecification_id($specificationId){
+        $this->specification_id = $specificationId;
     }
 }
