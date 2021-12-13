@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+use App\Form\ContactType;
+
 use App\Entity\User;
 use App\Entity\Message;
 use App\Form\RegistrationFormType;

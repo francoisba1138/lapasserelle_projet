@@ -23,13 +23,13 @@ class Message
     private $contain;
 
     /**
-     * @ORM\OneToOne(targetEntity=user::class, inversedBy="message", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="message", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $sender;
 
     /**
-     * @ORM\OneToOne(targetEntity=user::class, inversedBy="message", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="message", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $recipient;
