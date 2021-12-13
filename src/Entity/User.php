@@ -53,7 +53,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="sender")
      */
     
-     private $send_message;
+     private $sent_message;
 
        /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="recipient")
@@ -76,7 +76,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->stays = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->certificated_lodgings = new ArrayCollection();
-        $this->send_message = new ArrayCollection();
+        $this->sent_message = new ArrayCollection();
         $this->received_message = new ArrayCollection();
     }
 
@@ -284,27 +284,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection|Message[]
      */
-    public function getSendMessage(): Collection
+    public function getSentMessage(): Collection
     {
-        return $this->send_message;
+        return $this->sent_message;
     }
 
-    public function addSendMessage(Message $sendMessage): self
+    public function addSentMessage(Message $sentMessage): self
     {
-        if (!$this->send_message->contains($sendMessage)) {
-            $this->send_message[] = $sendMessage;
-            $sendMessage->setSender($this);
+        if (!$this->sent_message->contains($sentMessage)) {
+            $this->sent_message[] = $sentMessage;
+            $sentMessage->setSender($this);
         }
 
         return $this;
     }
 
-    public function removeSendMessage(Message $sendMessage): self
+    public function removeSentMessage(Message $sentMessage): self
     {
-        if ($this->send_message->removeElement($sendMessage)) {
+        if ($this->sent_message->removeElement($sentMessage)) {
             // set the owning side to null (unless already changed)
-            if ($sendMessage->getSender() === $this) {
-                $sendMessage->setSender(null);
+            if ($sentMessage->getSender() === $this) {
+                $sentMessage->setSender(null);
             }
         }
 
