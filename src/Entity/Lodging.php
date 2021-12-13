@@ -30,7 +30,7 @@ class Lodging
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class)
+     * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $host;
@@ -290,4 +290,12 @@ class Lodging
 
         return $this;
     }
+
+    public function __toString(): string
+       {
+           return $this->getTitle();
+        }
+
+
+
 }
