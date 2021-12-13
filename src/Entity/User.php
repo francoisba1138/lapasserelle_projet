@@ -50,9 +50,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $reviews;
 
     /**
+     * @ORM\Column(nullable="true")
      * @ORM\OneToOne(targetEntity=Message::class, mappedBy="sender", cascade={"persist", "remove"})
      */
-    private $message;
+    //private $message;
 
     /**
      * @ORM\ManyToMany(targetEntity=Lodging::class, mappedBy="certification")
@@ -211,7 +212,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getMessage(): ?Message
+    /*public function getMessage(): ?Message
     {
         return $this->message;
     }
@@ -226,7 +227,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->message = $message;
 
         return $this;
-    }
+    }*/
 
     /**
      * @return Collection|Lodging[]
