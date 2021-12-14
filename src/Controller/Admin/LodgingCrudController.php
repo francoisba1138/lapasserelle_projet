@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Lodging;
+use App\Entity\User;
+use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -25,13 +27,19 @@ class LodgingCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];*/
 
-        
+        yield IdField::new('id');
             yield TextField::new('title');
             yield TextField::new('description');
             yield IdField::new('host');
-            yield IdField::new('address');
+            yield TextField::new('address');
           
+            // return [
+            //     'title',
+            //     'description',
+            //     'host_id',
+            //     'address_id',
 
+            // ];
 
     
 

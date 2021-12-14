@@ -23,7 +23,7 @@ class Address
     private $city;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class)
+     * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -36,7 +36,7 @@ class Address
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $adress;
+    private $address;
 
     public function getId(): ?int
     {
@@ -79,15 +79,22 @@ class Address
         return $this;
     }
 
-    public function getAdress(): ?string
+    public function getaddress(): ?string
     {
-        return $this->adress;
+        return $this->address;
     }
 
-    public function setAdress(string $adress): self
+    public function setaddress(string $address): self
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }
+
+
+    public function __toString()
+    {
+        return $this->address . " " . $this->zip_code . " " . $this->city;
+    }
+
 }
