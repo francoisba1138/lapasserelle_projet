@@ -25,7 +25,7 @@ class Lodging
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
@@ -290,4 +290,12 @@ class Lodging
 
         return $this;
     }
+
+    public function __toString(): string
+       {
+           return $this->getTitle();
+        }
+
+
+
 }
