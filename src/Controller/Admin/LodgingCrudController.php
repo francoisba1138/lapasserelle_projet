@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use IntlChar;
@@ -27,11 +28,11 @@ class LodgingCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];*/
 
-        yield IdField::new('id');
+  
             yield TextField::new('title');
             yield TextField::new('description');
-            yield IdField::new('host');
-            yield TextField::new('address');
+            //yield AssociationField ::new('host');
+            //yield TextField::new('address');
           
             // return [
             //     'title',

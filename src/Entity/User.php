@@ -71,6 +71,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isVerified = false;
 
+ /**
+     * @ORM\OneToMany(targetEntity=Address::class, mappedBy="user")
+     */
+    
+    private $address;
+
+
     public function __construct()
     {
         $this->stays = new ArrayCollection();
@@ -78,6 +85,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->certificated_lodgings = new ArrayCollection();
         $this->sent_message = new ArrayCollection();
         $this->received_message = new ArrayCollection();
+        $this->address = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -347,6 +355,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->getEmail();
      }
+
+    /**
+     * @return Collection|Address[]
+     */
+    public function getAddress(): Collection
+    {
+        return $this->address;
+    }
+
+    public function addAddress(Address $address): self
+    {
+        if (!$this->address->contains($address)) {
+            $this->address[] = $address;
+            $address->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAddress(Address $address): self
+    {
+        if ($this->address->removeElement($address)) {
+            // set the owning side to null (unless already changed)
+            if ($address->getUser() === $this) {
+                $address->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 
 
 

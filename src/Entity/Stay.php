@@ -18,13 +18,13 @@ class Stay
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=lodging::class, inversedBy="stay", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Lodging::class, inversedBy="stay", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $lodging;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="stays")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="stays")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use App\Entity\Lodging;
 use App\Entity\User;
