@@ -30,7 +30,7 @@ class Lodging
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class)
+     * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $host;
@@ -62,7 +62,7 @@ class Lodging
     private $activities;
 
     /**
-     * @ORM\ManyToMany(targetEntity=user::class, inversedBy="certificated_lodgings")
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="certificated_lodgings")
      */
     private $certification;
 
