@@ -71,7 +71,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isVerified = false;
 
- /**
+    /**
      * @ORM\OneToMany(targetEntity=Address::class, mappedBy="user")
      */
     
