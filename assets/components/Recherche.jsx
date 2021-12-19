@@ -1,49 +1,61 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
+import Highlighter from "react-highlight-words";
 
 const Recherche = () => {
-    const [query, setQuery] = useState(""); // variable d'état
-    const [results, setResults] = userState([]);
-    
-    let timerRef = useRef(); //enregistre le timerRef
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  let timerRef = useRef();
 
-    const callApi = useCallback(() => { // useCallback permet de mémoriser la fonction
-        console.log("Call API");
-        fetch(`/api/lodging/search/${query}`)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("DATA", data);
-            });
-    }, [query]);
+  const callApi = useCallback(() => {
+    fetch(`/api/lodgings/search/${query}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setResults(data);
+        setLoading(false);
+      });
+  }, [query]);
 
-    useEffect(() => { // observe query
-        if (query.length > 0) {
-            clearTimeout(timerRef.current); // vide le timeout
-            timerRef.current = setTimeout(() => {
-                callApi();
-            }, 1000);
-        }
-    }, [query, callApi]);
+  useEffect(() => {
+    if (query.length > 0) {
+      setLoading(true);
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => {
+        callApi();
+      }, 1000);
+    }
+  }, [query, callApi]);
 
-    const handleChange = (e) => { 
-        setQuery(e.target.value); // stocke la valeur de l'input dans query au moment du changement
-    };
-    return (
-        <>
-            <input type="text" onChange={handleChange} value={query} />;
-
-            {results.lenght > 0 && (
-
-            
-            <ul>
-                {results.map((lodging) => {
-                    return (
-                        <li key={lodging.id}>{lodging.title}</li>
-                    )
-                })}
-
-            </ul>
-        )}
-        </>
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+  return (
+    <>
+      <input type="text" onChange={handleChange} value={query} />
+      {results.length > 0 ? (
+        <ul>
+          {results.map((lodging) => {
+            return (
+              <li key={lodging.id}>
+                <a href={`/logement/${lodging.id}`}>
+                  <Highlighter
+                    highlightClassTitle="highlightClass"
+                    searchWords={query.split(" ")}
+                    autoEscape={true}
+                    textToHighlight={lodging.title}
+                  />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      ) : query.length > 0 && !loading ? (
+        <div>Aucun résultat</div>
+      ) : (
+        !loading && <div>Effectuez une recherche</div>
+      )}
+    </>
+  );
 };
 
 export default Recherche;

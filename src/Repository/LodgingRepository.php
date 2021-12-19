@@ -20,14 +20,17 @@ class LodgingRepository extends ServiceEntityRepository
     }
 
 
-    public function findLodgings(){
+    public function findLodgings($query){
 
-        $qb = $this
-        ->createQueryBuilder('l') // l comme lodging (alias)
+        return $this
+        ->createQueryBuilder('l')
         ->select('l')
-        ;
-
-        return $qb->getQuery()->getArrayResult();
+      
+        ->where('l.title LIKE :query')
+        ->setParameter('query', '%' . $query . '%')
+        ->getQuery()
+        ->getArrayResult()
+    ;
 
     
     }

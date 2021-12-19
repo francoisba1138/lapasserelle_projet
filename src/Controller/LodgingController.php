@@ -22,7 +22,7 @@ class LodgingController extends AbstractController
 
 
  /**
-     * @Route("/logement{id}", name="lodging")
+     * @Route("/logement/{id}", name="lodging")
      */
     public function lodgingDetails($id): Response
     {       
@@ -32,7 +32,7 @@ class LodgingController extends AbstractController
         
         
         return $this->render('lodging/details.html.twig', [
-            'lodging' => $lodging,
+            'lodging' => $lodging
 
         ]);
     }
