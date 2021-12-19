@@ -9,6 +9,7 @@ use App\Entity\User;
 use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -35,5 +36,19 @@ class UserCrudController extends AbstractCrudController
 
 //}
     
+
+public function configureCrud(Crud $crud): Crud
+{
+    return $crud
+        // the labels used to refer to this entity in titles, buttons, etc.
+        ->setEntityLabelInSingular('Utilisateur')
+        ->setEntityLabelInPlural('Utilisateurs');
+
+        
+}
+
+
+
+
   
 }
