@@ -3,24 +3,154 @@
 {% block title %}Tripee{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
+<div class="green">
+    <section id="presentation">
+      <div class="container white">
+          <div class="text-align-center">
+              <h2>Qui sommes-nous ?</h2>
+              <p>Fondée en 2019, Tripee est une plateforme de référencement d’hébergements et de wwoofing, qui s’adresse à tous ceux qui souhaitent voyager et partager des expériences dans le respect de la planète </p>
+          </div>
+
+          <div class="argument">
+              <img class="picto-pres" src="{{ asset('img/earth.png')}}" alt="Ecologie">
+              <div>
+                  <h3>Eco responsable</h3>
+                  <p>Un réseau de professionnels et de particuliers au service de l’éco-responsabilité </p>
+              </div>
+          </div>
+
+          <div class="argument">
+              <img class="picto-pres" src="{{ asset('img/premium-quality 1.png')}}" alt="Labelisation">
+              <div >
+                  <h3>Labelisation</h3>
+                  <p>Une certification d’éco-responsabilité établie par les utilisateurs et pour les utilisateurs </p>
+              </div>
+          </div>
+
+          <div class="argument">
+              <img class="picto-pres remuneration" src="{{ asset('img/Frame 20.png')}}" alt="Economie circulaire">
+              <div>
+                  <h3>Rémuneration</h3>
+                  <p>3% du prix de votre réservation sur Tripee est reversée aux acteurs locaux et à leurs projets </p>
+
+              </div>
+          </div>
+
+      </div>
+    </section>
+  </div>
+  <section id="must">
+    <div>
+        <h2>Les incontournables</h2>
+    </div>
+    <div class="wrapper">
+        <div class="card">
+            <h3>Le châlet du lac</h3>
+            <div class="must-description">
+                <img class="picto-geo" src="{{ asset('img/geo.png')}}" alt="Picto">
+                <p>Courchevel</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Le châlet du lac</h3>
+            <div class="must-description">
+                <img class="picto-geo" src="{{ asset('img/geo.png')}}" alt="Picto">
+                <p>Courchevel</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Le châlet du lac</h3>
+            <div class="must-description">
+                <img class="picto-geo" src="{{ asset('img/geo.png')}}" alt="Picto">
+                <p>Courchevel</p>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Le châlet du lac</h3>
+            <div class="must-description">
+                <img class="picto-geo" src="{{ asset('img/geo.png')}}" alt="Picto">
+                <p>Courchevel</p>
+            </div>
+</section>
+  <section id="region">
+    <div class="container ">
+        <h1>Petit tour de France</h1>
+        <div class="row g-3">
+          <div class="col-6">
+            <div id="Bretagne" class="p-3 card-region">
+              <div class="glass">Bretagne</div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div id="PACA" class="p-3 card-region">
+              <div class="glass">PACA</div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div id="Auvergne" class="p-3 card-region">
+              <div class="glass">Auvergne</div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div id="Normandie" class="p-3 card-region">
+              <div class="glass">Normandie</div>
+            </div>
+          </div>
+          <div class="col-7">
+            <div id="Côte-Basque" class="p-3 card-region">
+              <div class="glass">Côte Basque</div>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+<section id="info">
+  <div class="container">
+      <div class="flex">
+          <div class="col-7 col-lg-7">
+              <img src="{{ asset('img/rafael-idrovo-espinoza-K7zGK78zfnQ-unsplash 1woofing.jpg')}}"  alt="">
+          </div>
+          <div class="col-5 col-lg-5 flex-column">
+              <h2>Notre service woofing</h2>
+              <p>Aujourd'hui le Wwoofing recense en France plus de 500 hôtes et 14 000 Wwoofers par an. </p>
+              <p>Alors venez découvrir les aspects de l'agriculture biologique, de la biodynamique et de la
+                  permaculture</p>
+              <button> <a class="button" href="#">En savoir plus</a></button>
+          </div>
+      </div>
+
+  
 
 
-    <h1>Tripee</h1>
-    <a href="logement">logements</a>
+      <div class="flex">
+          <div class="col-6 col-lg-5 flex-column">
+              <h2>Devenir un ambassadeur Tripster?</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor mauris odio augue dui, sapien
+                  nunc molestie. </p>
+              <p>Orci, convallis tempor ut ullamcorper ornare morbi quis velit. Diam, id fusce donec nisi
+                  volutpat praesent lacus, interdum.</p>
+              <button> <a class="button" href="#">En savoir plus</a></button>
+          </div>
+          <div class="col-6 col-lg-7">
+              <img src="{{ asset('img/Tripster.jpg')}}" alt="">
+          </div>
+      </div>
+    
+  </div>
+</section>
 
-   {# React  #}
-    {# <div id="root"></div> #}
+  
 
 
     
-</div>
+
 {% endblock %}
 
 
 
+ {#  <h1>Tripee</h1>#}
+    {# <a href="logement">logements</a>#}
+
+   {# React  #}
+    {# <div id="root"></div> #}
