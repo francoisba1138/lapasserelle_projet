@@ -18,22 +18,22 @@ class UserCrudController extends AbstractCrudController
     }
 
 
-    public function configureFields(string $pageName): iterable
-    {
+   // public function configureFields(string $pageName): iterable
+    //{
         /* return [
             IdField::new('id'),
             TextField::new('title'),
             TextEditorField::new('description'),
         ];*/
    
-        yield IdField::new('id');
-    yield TextField::new('email');
-    yield BooleanField::new('is_verified');
-    yield TextField::new('address');
+       // yield IdField::new('id');
+    //yield TextField::new('email');
+    //yield BooleanField::new('is_verified');
+    //yield TextField::new('address');
 
  
 
-}
+//}
     
   
 }

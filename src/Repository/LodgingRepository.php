@@ -19,6 +19,19 @@ class LodgingRepository extends ServiceEntityRepository
         parent::__construct($registry, Lodging::class);
     }
 
+
+    public function findLodgings(){
+
+        $qb = $this
+        ->createQueryBuilder('l') // l comme lodging (alias)
+        ->select('l')
+        ;
+
+        return $qb->getQuery()->getArrayResult();
+
+    
+    }
+
     // /**
     //  * @return Lodging[] Returns an array of Lodging objects
     //  */

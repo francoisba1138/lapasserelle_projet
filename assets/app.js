@@ -8,21 +8,22 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
+
 import React from "react";
-import ReactDOM from "react-dom";
-
-const App=() => {
-
-
+import ReactDOM from 'react-dom';
+import Recherche from "./components/Recherche";
+ 
+const App = () => {
     return(
-        <div>Je suis le composant App</div>
+
+        <div>
+            <Recherche/>
+        </div>
+
     )
 }
+
 
 if (document.getElementById('root')){
     ReactDOM.render(<App />, document.getElementById('root'));
 }
-
-
-
-
