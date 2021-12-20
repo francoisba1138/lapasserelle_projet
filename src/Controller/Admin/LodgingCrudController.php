@@ -58,8 +58,8 @@ class LodgingCrudController extends AbstractCrudController
     {
         return $crud
             // the labels used to refer to this entity in titles, buttons, etc.
-            ->setEntityLabelInSingular('Logement')
-            ->setEntityLabelInPlural('Logements');
+            ->setEntityLabelInSingular('Hébergement')
+            ->setEntityLabelInPlural('Hébergements');
     
             
     }

@@ -62,7 +62,7 @@ html{
     right:0;
     background-color: #CD8A56;
   } 
-  .header{ /* attention div de classe header au lieu de balise header dans le html d'origine  */
+  .header{ 
     background-image: url(../img/BG.jpg);
     padding-bottom: 20rem;
   }

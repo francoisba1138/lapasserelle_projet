@@ -11,18 +11,37 @@ use Symfony\Component\Routing\Annotation\Route;
 class LodgingController extends AbstractController
 {
     /**
-     * @Route("/logement", name="lodgings")
+     * @Route("/hebergement", name="lodgings")
      */
     public function index(): Response
-    {        return $this->render('lodging/index.html.twig', [
-            'controller_name' => 'LodgingController',
+    { 
+        
+     
+        if (isset($_POST) && !empty($_POST)){
+          
+
+                 
+     
+        
+        
+        return $this->render('lodging/index.html.twig', [
+            
+            "destination" => $_POST["destination"],
+            "startdate" => $_POST["startdate"],
+            "enddate" => $_POST["enddate"],
+            "travelersnb" => $_POST["travelersnb"],
+
+          
+           
 
         ]);
+    
+    };
     }
 
 
  /**
-     * @Route("/logement/{id}", name="lodging")
+     * @Route("/hebergement/{id}", name="lodging")
      */
     public function lodgingDetails($id): Response
     {       

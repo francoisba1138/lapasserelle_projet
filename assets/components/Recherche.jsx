@@ -37,7 +37,7 @@ const Recherche = () => {
           {results.map((lodging) => {
             return (
               <li key={lodging.id}>
-                <a href={`/logement/${lodging.id}`}>
+                <a href={`/hebergement/${lodging.id}`}>
                   <Highlighter
                     highlightClassTitle="highlightClass"
                     searchWords={query.split(" ")}
