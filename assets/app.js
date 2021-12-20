@@ -16,9 +16,9 @@ import Recherche from "./components/Recherche";
 const App = () => {
     return(
 
-        <div>
+        <>
             <Recherche/>
-        </div>
+        </>
 
     )
 }

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use App\Entity\Lodging;
 use App\Entity\User;
 use App\Entity\Address;
@@ -18,23 +19,27 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
-
-   // public function configureFields(string $pageName): iterable
-    //{
-        /* return [
+ public function configureFields(string $pageName): iterable
+ {
+            /* return [
             IdField::new('id'),
             TextField::new('title'),
             TextEditorField::new('description'),
         ];*/
    
        // yield IdField::new('id');
-    //yield TextField::new('email');
-    //yield BooleanField::new('is_verified');
-    //yield TextField::new('address');
+    yield TextField::new('email');
+    yield BooleanField::new('is_verified');
+    yield AssociationField::new('address');
+ 
+ 
+  //yield TextField::new('address.address', 'Numéro rue');
+  //yield NumberField::new('address.zipcode', 'Code postal');
+  //yield TextField::new('address.city', 'Localité');
 
  
 
-//}
+}
     
 
 public function configureCrud(Crud $crud): Crud

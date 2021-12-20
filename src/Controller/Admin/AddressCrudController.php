@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class AddressCrudController extends AbstractCrudController
 {
@@ -20,9 +21,11 @@ class AddressCrudController extends AbstractCrudController
     {
         return [
             
-            TextField::new('address', 'numero rue'),
+            TextField::new('address', 'Numero rue'),
            NumberField::new('zipcode', 'Code postal'),
-            TextField::new('city', 'localité'),
+            TextField::new('city', 'Localité'),
+            AssociationField::new('user', 'Utilisateur'),
+          
         ];
     }
     

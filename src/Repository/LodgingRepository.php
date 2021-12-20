@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Lodging;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -25,13 +26,15 @@ class LodgingRepository extends ServiceEntityRepository
         return $this
         ->createQueryBuilder('l')
         ->select('l')
-      
-        ->where('l.title LIKE :query')
+        ->join('l.address', 'a')
+        
+        ->where('a.city LIKE :query')
         ->setParameter('query', '%' . $query . '%')
         ->getQuery()
         ->getArrayResult()
+      
     ;
-
+ 
     
     }
 

@@ -3,7 +3,6 @@
 namespace App\Controller;
 use App\Repository\LodgingRepository;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -28,6 +27,7 @@ class HomeController extends AbstractController
     public function search($query, LodgingRepository $lodgingRepository)
     {
         $lodgings = $lodgingRepository->findLodgings($query);
+
         return new JsonResponse($lodgings);
     }
 }

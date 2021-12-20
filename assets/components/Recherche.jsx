@@ -7,6 +7,11 @@ const Recherche = () => {
   const [loading, setLoading] = useState(false);
   let timerRef = useRef();
 
+
+
+function setSearchInput(event){}
+
+
   const callApi = useCallback(() => {
     fetch(`/api/lodgings/search/${query}`)
       .then((response) => response.json())
@@ -29,17 +34,22 @@ const Recherche = () => {
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
+
+ 
   return (
     <>
       <input type="text" onChange={handleChange} value={query} />
       {results.length > 0 ? (
+        
+     
         <ul>
+       
           {results.map((lodging) => {
             return (
               <li key={lodging.id}>
                 <a href={`/hebergement/${lodging.id}`}>
                   <Highlighter
-                    highlightClassTitle="highlightClass"
+                    highlightclasstitle="highlightClass"
                     searchWords={query.split(" ")}
                     autoEscape={true}
                     textToHighlight={lodging.title}
