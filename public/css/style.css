@@ -194,10 +194,16 @@ html{
       font-size: 2rem;
     
     }
-    #searchbar input::placeholder{
+    #searchbar input::placeholder
+    
+    {
       color: #CD8A56;
       font-size: 1.3rem;
     }
+
+
+
+
   }
   /* PRESENTATION */
   .green{

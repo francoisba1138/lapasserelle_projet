@@ -4,16 +4,134 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
 </style>
 
 <div class="example-wrapper">
     <h1>{{lodging.title}}</h1>
+    <p>{{lodging.address.city}}</p>
+    <p>Hôte : {{lodging.host}}</p>
     <p>{{lodging.description}}</p>
 
 
- 
-    
+
+
+    <div>Adresse (pour le plan) : {{lodging.address}}</div>
+    <style>
+        #map {
+            height: 180px;
+        }
+    </style>
+    <div data-address="{{lodging.address}}" id="map"></div>
+
+    <script>
+        function search(address) {
+
+           
+            window.fetch('https://api-adresse.data.gouv.fr/search/?q=%27' + address)
+                .then(function (httpResponse) {
+                    return httpResponse.json();
+                })
+                .then(function (results) {
+                    let latitude = results.features[0].geometry.coordinates[0];
+                    let longitude = results.features[0].geometry.coordinates[1];
+                    map = L.map('map').setView([longitude, latitude], 16);
+                    /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a> contributors'
+                    }).addTo(map);*/
+                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiZnJhbmNvaXNiYSIsImEiOiJja3hmeXVzcDUxaDBqMm9tbTU0ZW56ajVoIn0.3VSYNFKNB8VIJ33CXiDoNg'
+        }).addTo(map);
+                    L.marker([longitude, latitude]).addTo(map);
+                });
+        }
+  
+        search('{{lodging.address}}');
+
+    </script>
+
+
+    {#
+    <script>
+
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiZnJhbmNvaXNiYSIsImEiOiJja3hmeXVzcDUxaDBqMm9tbTU0ZW56ajVoIn0.3VSYNFKNB8VIJ33CXiDoNg'
+        }).addTo(map);
+
+
+
+
+    </script> #}
+
+    {#
+    <script>
+        /* Les options pour afficher la France */
+        const mapOptions = {
+            center: [46.225, 0.132],
+            zoom: 5
+        }
+
+        /* Les options pour affiner la localisation */
+        const locationOptions = {
+            maximumAge: 10000,
+            timeout: 5000,
+            enableHighAccuracy: true
+        };
+
+        /* Création de la carte */
+        var map = new L.map("map", mapOptions);
+
+        /* Création de la couche OpenStreetMap */
+        var layer = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
+
+        /* Ajoute la couche de la carte */
+        map.addLayer(layer);
+
+        /* Verifie que le navigateur est compatible avec la géolocalisation */
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(handleLocation, handleLocationError, locationOptions);
+        } else {
+            /* Le navigateur n'est pas compatible */
+            alert("Géolocalisation indisponible");
+        }
+
+        function handleLocation(position) {
+            /* Zoom avant de trouver la localisation */
+            map.setZoom(16);
+            /* Centre la carte sur la latitude et la longitude de la localisation de l'utilisateur */
+            map.panTo(new L.LatLng(position.coords.latitude, position.coords.longitude));
+        }
+
+        function handleLocationError(msg) {
+            alert("Erreur lors de la géolocalisation");
+        }
+
+    </script> #}
+
+
+
+
 </div>
 {% endblock %}

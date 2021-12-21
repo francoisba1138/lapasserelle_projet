@@ -20,6 +20,7 @@ class LodgingController extends AbstractController
         $startdate ="";
         $enddate="";
         $travelersNb =1;
+        $post=false;
 
 
         if (isset($_POST) && !empty($_POST)){
@@ -28,15 +29,19 @@ class LodgingController extends AbstractController
             $startdate =$_POST["startdate"];
             $enddate=$_POST["enddate"];
             $travelersNb =$_POST["travelersNb"];
+            $post = true;
 
             $lodgings = $this->getDoctrine()->getRepository(Lodging::class)->createQueryBuilder('l')
             ->select('l')
-            ->Where('l.title LIKE :destination')
+            ->join('l.address', 'a')
+            ->Where('l.title LIKE :destination OR a.city LIKE :city OR l.description LIKE :description')
+            
             ->setParameter('destination', '%'.$destination.'%')
-               
+            ->setParameter('city', '%'.$destination.'%')
+            ->setParameter('description', '%'.$destination.'%')
+           
             ->getQuery()
             ->getResult()
-        
             ;
 
             
@@ -63,7 +68,7 @@ class LodgingController extends AbstractController
         return $this->render('lodging/index.html.twig', [
             
             "lodgings" => $lodgings,
-
+            "post" => $post,
             "destination" => $destination,
             "startdate" => $startdate,
             "enddate" => $enddate,
@@ -83,6 +88,11 @@ class LodgingController extends AbstractController
         $em = $this->getDoctrine();
 
         $lodging = $em->getRepository(Lodging::class)->findOneById($id);
+
+   
+
+
+        // localisation   
         
         
         return $this->render('lodging/details.html.twig', [
@@ -90,5 +100,9 @@ class LodgingController extends AbstractController
 
         ]);
     }
+
+
+   
+
 
 }
