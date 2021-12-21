@@ -20,32 +20,49 @@ class LodgingController extends AbstractController
         $startdate ="";
         $enddate="";
         $travelersNb =1;
-      
 
-        
-     
+
         if (isset($_POST) && !empty($_POST)){
 
             $destination =$_POST["destination"];
             $startdate =$_POST["startdate"];
             $enddate=$_POST["enddate"];
             $travelersNb =$_POST["travelersNb"];
+
+            $lodgings = $this->getDoctrine()->getRepository(Lodging::class)->createQueryBuilder('l')
+            ->select('l')
+            ->Where('l.title LIKE :destination')
+            ->setParameter('destination', '%'.$destination.'%')
+               
+            ->getQuery()
+            ->getResult()
+        
+            ;
+
+            
+        
+
+           /* $auteurListFilter = $em->getRepository(Article::class)->createQueryBuilder('a')
+            ->andWhere('a.date = :date')
+            ->setParameter('date', '2018-01-03')
+            ->orderBy('a.id', 'ASC') //non obligatoire
+            ->setMaxResults(10) //non obligatoire
+            ->getQuery()
+            ->getResult(); */
+
+         
+            
+
            
+         }else{
+            $lodgings = $lodgingRepository->findAll();
          };
-
-
-
-
-
-
-
-
 
 
 
         return $this->render('lodging/index.html.twig', [
             
-            "lodgings" => $lodgingRepository->findAll(),
+            "lodgings" => $lodgings,
 
             "destination" => $destination,
             "startdate" => $startdate,

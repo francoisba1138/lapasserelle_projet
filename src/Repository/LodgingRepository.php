@@ -21,6 +21,17 @@ class LodgingRepository extends ServiceEntityRepository
     }
 
 
+
+   
+
+
+
+
+
+
+
+
+
     public function findLodgings($query){
 
         return $this
