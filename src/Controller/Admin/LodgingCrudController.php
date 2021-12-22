@@ -6,6 +6,7 @@ use App\Entity\Lodging;
 use App\Entity\User;
 use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -33,11 +34,12 @@ class LodgingCrudController extends AbstractCrudController
   
             yield TextField::new('title', 'Titre');
             yield TextField::new('description');
-            yield AssociationField ::new('host');
+            yield AssociationField ::new('host', 'propriétaire');
             //yield AssociationField::new('address');
             yield TextField::new('address.address', 'Numéro rue');
             yield NumberField::new('address.zipcode', 'Code postal');
             yield TextField::new('address.city', 'Localité');
+            yield BooleanField::new('wwoofing', 'Wwoofing');
 
 
           

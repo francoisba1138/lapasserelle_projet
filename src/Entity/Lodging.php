@@ -71,6 +71,11 @@ class Lodging
      */
     private $specifications;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $wwoofing;
+
     public function __construct()
     {
         $this->availabilities = new ArrayCollection();
@@ -295,6 +300,18 @@ class Lodging
        {
            return $this->getTitle();
         }
+
+    public function getWwoofing(): ?bool
+    {
+        return $this->wwoofing;
+    }
+
+    public function setWwoofing(bool $wwoofing): self
+    {
+        $this->wwoofing = $wwoofing;
+
+        return $this;
+    }
 
 
 

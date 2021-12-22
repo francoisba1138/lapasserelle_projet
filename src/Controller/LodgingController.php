@@ -89,9 +89,6 @@ class LodgingController extends AbstractController
 
         $lodging = $em->getRepository(Lodging::class)->findOneById($id);
 
-   
-
-
         // localisation   
         
         

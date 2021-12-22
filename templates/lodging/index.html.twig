@@ -2,38 +2,135 @@
 
 {% block title %}Hébergements{% endblock %}
 
+
 {% block body %}
+
+
+
+<div class="row ">
+    <div class="col-6 d-flex flex-column border-1">
+        
+
+
+
+
+     
+        {% for lodging in lodgings %}
+           
+            <div>
+                <ul>
+                    <li><a href="#"></a>{{lodging.title}}</li>
+                    <li>{{lodging.description}}</li>
+                    <li>Hôte : {{lodging.host}}</li>
+                    <li>{{lodging.address.address}}</li>
+                    <li>{{lodging.address.city}}</li>
+
+                   
+
+                    {% if post %}
+                        <li>{{startdate}}</li>
+                        <li>{{enddate}}</li>
+                        <li>{{travelersNb}}</li>
+                    {% endif %}
+            </ul>
+            <a href="{{ path('lodging', {'id' : lodging.id }) }}">Détails</a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-6">
+
+    <div  style="height: 100%;" id="map"></div>
+</div>
+</div>
+
+<script>
+    let map;
+let TabGeo = [];
+
+showCarte();
 
 {% for lodging in lodgings %}
 
-<ul>
-    <li><a href="#"></a>{{lodging.title}}</li>
-    <li>{{lodging.description}}</li>
-    <li>Hôte : {{lodging.host}}</li>
-    <li>{{lodging.address.address}}</li>
-    <li>{{lodging.address.city}}</li>
-    
-
-    {% if post %}
-    <li>{{startdate}}</li>
-    <li>{{enddate}}</li>
-    <li>{{travelersNb}}</li>
-
-
-    {% endif %}
-
-
-
-
-
-   </ul>
-
+    addMarkerFromAdress("{{lodging.address.address|escape('js')}} , {{ lodging.address.zipcode }}");
+  
 
 {% endfor %}
 
+    autoBound();
+    function showCarte(){
+  map = L.map('map').setView([2.572276, 49.203509], 16);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+}
+
+function addMarkerFromAdress(address){
+  window.fetch('https://api-adresse.data.gouv.fr/search/?q='+address)
+  .then(function(httpResponse){
+        return httpResponse.json();
+  })
+  .then(function(results)
+  {
+      let latitude = results.features[0].geometry.coordinates[0];
+      let longitude = results.features[0].geometry.coordinates[1];
+      let marker = L.marker([longitude, latitude]).addTo(map);
+      TabGeo.push(marker);
+      autoBound();
+  });
+}
+
+function autoBound(){
+  var group = new L.featureGroup(TabGeo);
+  map.fitBounds(group.getBounds());
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#<script>
+        function search(address) {
+
+           
+            window.fetch('https://api-adresse.data.gouv.fr/search/?q=%27' + address)
+                .then(function (httpResponse) {
+                    return httpResponse.json();
+                })
+                .then(function (results) {
+                    let latitude = results.features[0].geometry.coordinates[0];
+                    let longitude = results.features[0].geometry.coordinates[1];
+                    map = L.map('map').setView([longitude, latitude], 20);
+                    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+                    }).addTo(map);
+                 
+                    L.marker([longitude, latitude]).addTo(map);
+
+                });
+        }
+  
+        search('6 rue du chaudron paris');
+
+    </script>#}
    
 {# <div id='root'></div> #}
-
-
 
 {% endblock %}
