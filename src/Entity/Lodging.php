@@ -57,7 +57,7 @@ class Lodging
     private $reviews;
 
     /**
-     * @ORM\OneToMany(targetEntity=Activity::class, mappedBy="lodging")
+     * @ORM\ManyToMany(targetEntity=Activity::class, inversedBy="lodging")
      */
     private $activities;
 
@@ -67,7 +67,7 @@ class Lodging
     private $certification;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Specification::class, mappedBy="lodging")
+     * @ORM\ManyToMany(targetEntity=Specification::class, inversedBy="lodging")
      */
     private $specifications;
 

@@ -88,12 +88,15 @@ class LodgingController extends AbstractController
         $em = $this->getDoctrine();
 
         $lodging = $em->getRepository(Lodging::class)->findOneById($id);
+        $activities = $lodging->getActivities();
+        //var_dump($activities);
+       
 
-        // localisation   
-        
+           
         
         return $this->render('lodging/details.html.twig', [
-            'lodging' => $lodging
+            'lodging' => $lodging,
+            'activities' => $activities,
 
         ]);
     }
