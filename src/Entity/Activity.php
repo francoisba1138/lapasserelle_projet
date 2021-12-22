@@ -23,7 +23,7 @@ class Activity
     private $title;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
     private $description;
 
@@ -32,6 +32,11 @@ class Activity
      * @ORM\JoinColumn(nullable=false)
      */
     private $lodging;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $icon;
 
     public function getId(): ?int
     {
@@ -73,4 +78,23 @@ class Activity
 
         return $this;
     }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
 }

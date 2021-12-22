@@ -35,9 +35,14 @@ class Specification
     private $type;
 
     /**
-     * @ORM\ManyToMany(targetEntity=lodging::class, inversedBy="specifications")
+     * @ORM\ManyToMany(targetEntity=Lodging::class, inversedBy="specifications")
      */
     private $lodging;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $title;
 
     public function __construct()
     {
@@ -107,5 +112,24 @@ class Specification
         $this->lodging->removeElement($lodging);
 
         return $this;
+    }
+
+  
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+    
+    public function __toString()
+    {
+        return $this->title;
     }
 }

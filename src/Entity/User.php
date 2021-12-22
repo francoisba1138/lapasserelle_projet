@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Cette adresse e-mail est déjà utilisée")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -367,10 +367,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function __toString(): string
-    {
-        return $this->getFirstName();
-     }
+  
 
     /**
      * @return Collection|Address[]
@@ -438,6 +435,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+
+
+    public function __toString(): string
+    {       
+        if($this->getNickname()){
+            return $this->getNickname();
+        }elseif ($this->getFirstName()){
+            return $this->getFirstName();
+        }elseif($this->getEmail()){
+            return $this->getEmail();
+        }
+
+     }
 
 
 

@@ -35,11 +35,21 @@ class LodgingCrudController extends AbstractCrudController
             yield TextField::new('title', 'Titre');
             yield TextField::new('description');
             yield AssociationField ::new('host', 'propriétaire');
-            //yield AssociationField::new('address');
-            yield TextField::new('address.address', 'Numéro rue');
-            yield NumberField::new('address.zipcode', 'Code postal');
-            yield TextField::new('address.city', 'Localité');
+            yield AssociationField::new('address');
+            yield AssociationField::new('activities');
+            yield AssociationField::new('specifications');
+
+
+
+           // yield AssociationField::new('activity')->setFormTypeOption('disabled','disabled');
+
+            //yield TextField::new('address.address', 'Numéro rue');
+            //yield NumberField::new('address.zipcode', 'Code postal');
+            //yield TextField::new('address.city', 'Localité');
+            yield TextField::new('region', 'Région');
             yield BooleanField::new('wwoofing', 'Wwoofing');
+            yield BooleanField::new('certified', 'Labélisé');
+            yield NumberField::new('rating', 'Evaluation');
 
 
           

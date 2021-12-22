@@ -76,6 +76,21 @@ class Lodging
      */
     private $wwoofing;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $region;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $certified;
+
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $rating;
+
     public function __construct()
     {
         $this->availabilities = new ArrayCollection();
@@ -309,6 +324,42 @@ class Lodging
     public function setWwoofing(bool $wwoofing): self
     {
         $this->wwoofing = $wwoofing;
+
+        return $this;
+    }
+
+    public function getRegion(): ?string
+    {
+        return $this->region;
+    }
+
+    public function setRegion(?string $region): self
+    {
+        $this->region = $region;
+
+        return $this;
+    }
+
+    public function getCertified(): ?bool
+    {
+        return $this->certified;
+    }
+
+    public function setCertified(bool $certified): self
+    {
+        $this->certified = $certified;
+
+        return $this;
+    }
+
+    public function getRating(): ?int
+    {
+        return $this->rating;
+    }
+
+    public function setRating(?int $rating): self
+    {
+        $this->rating = $rating;
 
         return $this;
     }
