@@ -59,7 +59,7 @@
             </li>
             <li class="nav-item">
             
-              <img src="{{ asset('img/nav/profil.png') }}" alt="Mon profil ({{ app.user.username }})">
+              <img src="{{ asset('img/nav/profil.png') }}" alt="Mon profil {% if app.user %}({{ app.user }}) {% endif %}">
               
             </li>
           </ul>

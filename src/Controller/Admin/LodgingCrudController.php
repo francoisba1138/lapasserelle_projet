@@ -6,6 +6,10 @@ use App\Entity\Lodging;
 use App\Entity\User;
 use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -33,7 +37,7 @@ class LodgingCrudController extends AbstractCrudController
 
   
             yield TextField::new('title', 'Titre');
-            yield TextField::new('description');
+            yield TextEditorField::new('description');
             yield AssociationField ::new('host', 'propriétaire');
             yield AssociationField::new('address');
             yield AssociationField::new('activities');
@@ -50,6 +54,8 @@ class LodgingCrudController extends AbstractCrudController
             yield BooleanField::new('wwoofing', 'Wwoofing');
             yield BooleanField::new('certified', 'Labélisé');
             yield NumberField::new('rating', 'Evaluation');
+            yield CollectionField::new('pictures', 'photos',
+             ['entry_type' => ImageField::new('picture', 'photo')->setUploadDir('public/img/icons')->setBasePath('img/icons')]);
 
 
           

@@ -91,6 +91,11 @@ class Lodging
      */
     private $rating;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $pictures = [];
+
     public function __construct()
     {
         $this->availabilities = new ArrayCollection();
@@ -360,6 +365,18 @@ class Lodging
     public function setRating(?int $rating): self
     {
         $this->rating = $rating;
+
+        return $this;
+    }
+
+    public function getPictures(): ?array
+    {
+        return $this->pictures;
+    }
+
+    public function setPictures(?array $pictures): self
+    {
+        $this->pictures = $pictures;
 
         return $this;
     }

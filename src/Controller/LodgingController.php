@@ -6,10 +6,25 @@ use App\Repository\LodgingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Common\Collections\Criteria;
+use Doctrine\Common\Collections\Expr\Comparison;
 
 
 class LodgingController extends AbstractController
 {
+
+   /*public function getOneTypeOfSpecs($type, $specs){
+        $expr = new Comparison('type', '=', $type);
+        $criteria = new Criteria();
+        $criteria->where($expr);
+        $matched = $collection->matching($criteria);
+
+        return $matched;
+
+    };*/
+
+
+
     /**
      * @Route("/hebergement", name="lodgings")
      */
@@ -80,7 +95,7 @@ class LodgingController extends AbstractController
     }
 
 
- /**
+    /**
      * @Route("/hebergement/{id}", name="lodging")
      */
     public function lodgingDetails($id): Response
@@ -89,6 +104,14 @@ class LodgingController extends AbstractController
 
         $lodging = $em->getRepository(Lodging::class)->findOneById($id);
         $activities = $lodging->getActivities();
+        $specifications = $lodging->getSpecifications();
+
+       //$equipements = getOneTypeOfSpecs('equipement',$specifications);
+
+   
+    
+        
+
         //var_dump($activities);
        
 
@@ -97,12 +120,18 @@ class LodgingController extends AbstractController
         return $this->render('lodging/details.html.twig', [
             'lodging' => $lodging,
             'activities' => $activities,
+            'specifications' => $specifications,
+            //'equipements' => $equipements,
 
         ]);
     }
 
-
    
 
 
+
+        
+  
+
 }
+ 
