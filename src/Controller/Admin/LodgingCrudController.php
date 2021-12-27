@@ -54,8 +54,10 @@ class LodgingCrudController extends AbstractCrudController
             yield BooleanField::new('wwoofing', 'Wwoofing');
             yield BooleanField::new('certified', 'Labélisé');
             yield NumberField::new('rating', 'Evaluation');
-            yield CollectionField::new('pictures', 'photos',
-             ['entry_type' => ImageField::new('picture', 'photo')->setUploadDir('public/img/icons')->setBasePath('img/icons')]);
+            yield NumberField::new('price', 'Prix');
+            yield ImageField::new('photo1', 'Photo 1')->setUploadDir('public/img/lodgings')->setBasePath('img/lodgings');
+            yield ImageField::new('photo2', 'Photo 2')->setUploadDir('public/img/lodgings')->setBasePath('img/lodgings');
+            yield ImageField::new('photo3', 'Photo 3')->setUploadDir('public/img/lodgings')->setBasePath('img/lodgings');
 
 
           

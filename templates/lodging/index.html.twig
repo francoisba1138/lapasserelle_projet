@@ -2,47 +2,125 @@
 
 {% block title %}Hébergements{% endblock %}
 
+{% block stylesheets %}
+
+<link rel="stylesheet" href="{{asset('css/lodgings.css')}}">
+
+{% endblock %}
+
 
 {% block body %}
+<main>
 
+    <section id="cheminade">
+<div class="container row">
+    <div class="dropdown col-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Prix
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#"> Moins de 30€ </a></li>
+          <li><a class="dropdown-item" href="#">Entre 30€ et 50€ / Nuit</a></li>
+          <li><a class="dropdown-item" href="#">Entre 50€ et 80€ / Nuit</a></li>
+        </ul>
+      </div>
+      <div class="dropdown col-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Type d'habitation
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Gîte</a></li>
+          <li><a class="dropdown-item" href="#">Auberge de jeunesse</a></li>
+          <li><a class="dropdown-item" href="#">Hôtel</a></li>
+        </ul>
+      </div>
+      <div class="dropdown col-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Equipement
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Wi-Fi</a></li>
+          <li><a class="dropdown-item" href="#">Accessible aux PMR</a></li>
+          <li><a class="dropdown-item" href="#">Cuisine équipée</a></li>
+        </ul>
+      </div>
+      <div class="dropdown col-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Activités
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Cyclisme</a></li>
+          <li><a class="dropdown-item" href="#">Trek</a></li>
+          <li><a class="dropdown-item" href="#">Randonnée</a></li>
+          <li><a class="dropdown-item" href="#">Tennis</a></li>
+          <li><a class="dropdown-item" href="#">Pêche</a></li>
 
-
-<div class="row ">
-    <div class="col-6 d-flex flex-column border-1">
-        
-
-
-
-
-     
-        {% for lodging in lodgings %}
-           
-            <div>
-                <ul>
-                    <li><a href="#"></a>{{lodging.title}}</li>
-                    <li>{{lodging.description}}</li>
-                    <li>Hôte : {{lodging.host}}</li>
-                    <li>{{lodging.address.address}}</li>
-                    <li>{{lodging.address.city}}</li>
-                    <p>Note : {{lodging.rating}}</p>
-
-                   
-
-                    {% if post %}
-                        <li>{{startdate}}</li>
-                        <li>{{enddate}}</li>
-                        <li>{{travelersNb}}</li>
-                    {% endif %}
-            </ul>
-            <a href="{{ path('lodging', {'id' : lodging.id }) }}">Détails</a>
-        </div>
-        {% endfor %}
+        </ul>
+      </div>
     </div>
-    <div class="col-6">
+</section>
 
-    <div  style="height: 100%;" id="map"></div>
-</div>
-</div>
+
+    <section id="cheminade">
+
+        <div class="container row">
+            <div class="thing"> 
+            </div>
+            <div class="col-7">
+
+              {% for lodging in lodgings %}
+
+                <div class="divception">
+                    <div class="flex">
+                        <div class="Col-3">
+                            <img src="{{ asset('img/Gite de jacques cheminade.jpg') }}">
+                        </div>
+                        <div class="texte">
+                            <div class="Col-3">
+                                <h2>{{lodging.title}}</h2>
+                                <div class="rating">
+                                  {% if lodging.rating %}
+                                  {% for i in 1 .. lodging.rating %}
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                      <path
+                                          d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                      </svg>
+                                  {% endfor %}
+                                  {% for i in 1 .. (5 - lodging.rating) %}
+                                      <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                                      <path
+                                          d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
+                                      </svg>
+                                  {% endfor %}
+                              {% endif %}
+
+                                </div>
+                                <p>{{lodging.description|raw}}
+                                </p>
+                                <div class="price">
+                                    <div class="align-text">
+                                        <b>{{lodging.price|number_format(2, ',', ' ')}}€/Nuit</b>
+                                        <button> <a class="button" href="{{ path('lodging', {'id' : lodging.id }) }}">Montre-moi!</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+         
+            </div>
+            <div class="flex col-5 ">
+                <div id="index-map" class="index-map"></div>
+            </div>
+        </div>
+    </section>
+    
+
+
+</main>
+
+
 
 <script>
     let map;
@@ -59,7 +137,7 @@ showCarte();
 
     autoBound();
     function showCarte(){
-  map = L.map('map').setView([2.572276, 49.203509], 16);
+  map = L.map('index-map').setView([2.572276, 49.203509], 16);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
@@ -90,48 +168,5 @@ function autoBound(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{#<script>
-        function search(address) {
-
-           
-            window.fetch('https://api-adresse.data.gouv.fr/search/?q=%27' + address)
-                .then(function (httpResponse) {
-                    return httpResponse.json();
-                })
-                .then(function (results) {
-                    let latitude = results.features[0].geometry.coordinates[0];
-                    let longitude = results.features[0].geometry.coordinates[1];
-                    map = L.map('map').setView([longitude, latitude], 20);
-                    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
-                    }).addTo(map);
-                 
-                    L.marker([longitude, latitude]).addTo(map);
-
-                });
-        }
-  
-        search('6 rue du chaudron paris');
-
-    </script>#}
-   
-{# <div id='root'></div> #}
-
 {% endblock %}
+

@@ -1,11 +1,22 @@
-html{
+
+  html{
     font-family: 'Open Sans', sans-serif;
+    background-color: #ffffff00;
+  }
+  
+  @media screen and (max-width:480px) {
+    html{
+      font-size: 50%;
+    }
+  }
+  header {
+    padding: 0;
+
   }
   .switch-background {
   
     margin-top: 5rem;
-    padding: 0;
-    width: 20vw;
+    width: 60%;
   
   }
   .toggle-checkbox label {
@@ -62,23 +73,45 @@ html{
     right:0;
     background-color: #CD8A56;
   } 
-  .header{ 
-    background-image: url(../img/BG.jpg);
-    padding-bottom: 20rem;
+  
+  video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+  .header{
+    padding-bottom: 0rem; 
   }
     .brand-name {
-      color: white !important; 
-      font-size: 6rem;
+      color: black !important; 
+      font-size: 4rem;
       font-family: Denton;
       font-weight: 900;
       margin-right: 3rem;
+      margin-left: 4%;
     }
     h1{
-        color: white;
+
         font-size: 6rem;
         font-family: Denton;
         font-weight: 900;
         margin-top: 40px;
+        z-index: 1000;
+        color: rgb(255, 255, 255);
+        text-shadow: black;
+    
+   
+    }
+    .nav-link {
+      font-size: 1.5rem;
+    }
+    .nav-menu{
+      width: 40rem;
     }
     .glass{
       background: rgba(255, 255, 255, 0.35);
@@ -89,11 +122,15 @@ html{
     }
     #searchbar {
       width: 70vw;
-      height: 17rem;
+
       border-radius: 16px;
-      margin-top: 50px;
+
+      padding: 3%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 5%;
     }
-  
   .center{
       display: flex;
       justify-content: center;
@@ -140,30 +177,45 @@ html{
   }
   
   #searchbar input{
-    height: 5rem;
+    padding: 5%;
     border-radius: 10px;
-    margin-top: 1rem;
+
   }
   
   #searchbar input::placeholder{
     color: #CD8A56;
-    font-size: 2rem;
+    font-size: 1rem;
   }
   
   #searchbar label{
     font-family: 'Open Sans', sans-serif;
     color: white;
     font-size: 2rem;
+    font-weight: 900;
+    padding-bottom: 8%;
   
   }
   
   #label-transparent {
     color: transparent !important;
   }
-  
+
+  .row>* {
+    margin-top: 0
+}
+
+
+
   @media screen and (max-width:480px) {
-    html{
-      font-size: 50%;
+
+    video {
+      object-fit: cover;
+      width: 100vw;
+      height: 710px;
+      position: absolute;
+    
+      top: 0;
+      left: 0;
     }
     .switch-background {
   
@@ -185,146 +237,192 @@ html{
       margin-top: 2rem;
     }
     .champ{
-      height: 1rem;
+
       background-color: rgba(0, 0, 255, 0);
     }
     #searchbar label{
       font-family: 'Open Sans', sans-serif;
       color: white;
       font-size: 2rem;
+     
     
     }
-    #searchbar input::placeholder
-    
-    {
+    #searchbar input::placeholder{
       color: #CD8A56;
-      font-size: 1.3rem;
     }
-
-
-
-
   }
+
   /* PRESENTATION */
-  .green{
-    background-color: #768880;
-  }
-  #presentation{
+  #avantages-2 {
     background-color: #4C6759;
-    height: 100vh;
+    padding: 5%;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
-    border-radius: 100%/0 0 190px 190px;
-  
+    text-align: center;
+    padding-top: 15%;
+
   }
-  
-  #presentation .container {
-    width: 70%;
-    margin: auto;
-    padding: 5rem 5rem;
+
+  #avantages-2 h3{
+    font-family: 'Open Sans', sans-serif;
+      font-weight: 900;
+      font-size: 3.5rem;
+      padding-bottom: 3%;
+      text-align: center;
   }
-  #presentation .white {
+  #avantages-2 h4{
+    font-weight: 800;
+    color: #4C6759;
+  }
+  #avantages-2 .container{
     background-color: white;
-    border-radius: 50px;
-    filter: drop-shadow(11px 0px 0px #2E4533);
+    width: 60vw;
+    margin: auto;
+    border-radius: 20px;
+    padding:1% 0
   }
-  
-  #presentation h2{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 4rem;
-    color: #485E53;
-    font-weight: 700;
-    margin-bottom: 3rem;
+  #avantages-2 .legume {
+    position: absolute;
+    right: 0%;
   }
-  
-  #presentation h3{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 3rem;
-    color: #485E53;
-    font-weight: 700;
-  }
-  
-  #presentation .argument{
+  #avantages-2 .avantages {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
   }
-  
-  #presentation p{
-    font-size: 2.2rem;
-  }
-  #presentation .picto-pres{
-    width: 150px;
+  #avantages-2 img{
+    width: 40%;
     height: fit-content;
-    margin: 1rem;
-    margin-right: 10rem;
+    margin-bottom: 3%;
   }
-  
-  #presentation .picto-pres-odd{
-    width: 150px;
-    height: fit-content;
-    margin: 1rem;
-    margin-left: 5rem;
-  }
-  #presentation .text-align-right{
-    text-align: right;
-  }
-  #presentation .text-align-center{
-    text-align: center;
-    margin-bottom: 7rem;
-  }
-  @media screen and (max-width:480px) {
-    #presentation .argument{
+
+
+  @media screen and (max-width:480px)  {
+
+    #avantages-2 {
+      background-color: #4C6759;
+      padding: 5%;
+      padding-top: 50%;
+    }
+    #avantages-2 .container{
+      background-color: white;
+      width: 90vw;
+      margin: auto;
+      border-radius: 20px;
+      padding:10% 8%
+    }
+    #avantages-2 h4{
+      font-weight: 800;
+      color: #4C6759;
+      font-size: 2.5rem;
+    }
+    #avantages-2 p{
+      font-size: 1.8rem;
+    }
+    #avantages-2 .avantages {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 5%;
     }
-    #presentation .picto-pres{
-      width: 150px;
+    #avantages-2 img{
+      width: 40%;
       height: fit-content;
-      margin: 1rem;
-    
+      margin-bottom: 3%;
+      margin-top: 3%;
     }
   }
+
+
+/* MUST */
+
+#must{
+  background-color: white;
+  padding-top: 5%;
+}
+
+#must h2{
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  text-align: left;
+  margin-bottom: 4rem;
+  padding-left: 2%;
+}
+
+#must .wrapper{
+  max-height: 430px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+#must .wrapper::-webkit-scrollbar {
+  display: inline;
   
-  /* MUST */
-  
-  #must{
-    background-color: #768880;
-  }
-  
+}
+
+#must .wrapper::-webkit-scrollbar-button {
+  display: block;
+}
+
+#must .card{
+  min-width: 661px;
+  height: 377px;
+  border: none;
+  border-radius: 15px;
+  background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3)), url(../img/New.jpg) ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 1rem;
+ 
+}
+
+
+#must .picto-geo{
+  width: 30px;
+  height: fit-content;
+  margin-right: 10px;
+}
+#must .must-description{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+#must .must-description p{
+  font-size: 1.5rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+}
+
+#must .card h3{
+  margin-left: 20px;
+  font-size: 3rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+@media screen and (max-width:480px) {
+
   #must h2{
     text-align: center;
-    font-size: 8rem;
-    margin-bottom: 60px;
-    color: white;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: black;
     font-family: 'Open Sans', sans-serif;
     font-weight: 900;
+    padding-top: 2rem;
   }
-  
-  #must .wrapper{
-    max-height: 400px;
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-  }
-  #must .wrapper::-webkit-scrollbar {
-    display: inline;
-    
-  }
-  
-  #must .wrapper::-webkit-scrollbar-button {
-    display: block;
-  }
-  
+
   #must .card{
-    min-width: 661px;
-    height: 377px;
+    min-width: 68%;
+    height: 140px;
     border: none;
     border-radius: 15px;
-    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3)), url(../img/New.jpg) ;
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7)), url(../img/New.jpg) ;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -334,10 +432,8 @@ html{
     margin: 1rem;
    
   }
-  
-  
   #must .picto-geo{
-    width: 30px;
+    width: 20px;
     height: fit-content;
     margin-right: 10px;
   }
@@ -354,18 +450,15 @@ html{
   
   #must .card h3{
     margin-left: 20px;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
   }
-  
-  /* CSS REGION*/
-  
-  html{
-    font-size: 62.5%;
-  }
-  
-  #region .glass{
+}  
+
+/* CSS REGION*/
+
+#region .glass{
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0);
   border-radius: 16px;
@@ -376,36 +469,42 @@ html{
     width: 100%;
     border-radius: 0 0 1rem 1rem;
     padding-left: 2rem;
-    padding: 1rem;
+    padding: 0.3rem 1rem;
+    font-size: 2rem;
+
   }
   
   #region .container{
     width: 70vw;
     margin: auto;
-    padding-top: 18rem;
+    padding-top: 0rem;
   }
   
   #region{
     border: none;
   
     width: 100vw;
-    background-image: url(../img/PNG/Map\ resizePlan\ de\ travail\ 1.png);
+    background-image: url(../img/Map\ resizePlan\ de\ travail\ 1.png);
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 10rem;
-  }
+    padding-bottom: 30rem;
   
+  }
+
   
   #region h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 900;
-    font-size: 10rem;
+    font-size: 5rem;
     text-align: center;
     color: white;
-    margin-bottom: 13rem;
+    margin-bottom: 3rem;
+    padding-top: 10%;
+    padding-bottom: 10%;
   }
+
   #region .card-region{
-    height: 25rem;
+    height: 15rem;
     padding: 10rem;
     display: flex;
     justify-content: flex-end;
@@ -417,6 +516,7 @@ html{
     border-radius: 1rem;
     -webkit-box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.6); 
     box-shadow: rgba(50, 50, 93, 0.55) 0px 6px 12px -2px, rgba(0, 0, 0, 0.55) 0px 3px 7px -3px;
+    margin-bottom: 3%;
   }
   
   #region .p-3 {
@@ -457,26 +557,27 @@ html{
     #region .container{
         width: 95vw;
         margin: auto;
-        padding-top: 3rem;
+        padding-top: 2rem;
     }
-    html{
-        font-size: 50%;
-    }
+  
     #region{
         border: none;
         height: 30vh;
-        background-image: url(../img/Map_zelda_cool.png);
+        background-image: url(../img/Map\ resizePlan\ de\ travail\ 1.png);
         background-repeat: no-repeat;
         background-size: cover;
+        margin-bottom: 20rem;
     }
   
     #region h1 {
         font-family: 'Open Sans', sans-serif;
-        font-weight: 700;
-        font-size: 3rem;
+        font-weight: 900;
+        font-size: 4rem;
         text-align: center;
         color: white;
         margin-bottom: 4rem;
+        text-shadow: black;
+        padding: 0;
   
     }
     #region .card-region{
@@ -490,203 +591,626 @@ html{
         font-size: 1.5rem;
         border-radius: 1rem;
     }
+    #region .glass{
+      /* From https://css.glass */
+      background: rgba(255, 255, 255, 0);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(6.6px);
+      -webkit-backdrop-filter: blur(6.6px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        border-radius: 0 0 1rem 1rem;
+        padding-left: 2rem;
+        padding: 1rem;
+        font-size: 1.7rem;
+    
+      }
   }
-  
+
   /*INFO*/
-  #info .flex {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 2rem;
+#info .flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#info .flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 2.8rem;
+  justify-content: space-evenly;
+
+  font-weight: 600;
+  height: 577px;
+  
+
+}
+
+#info{
+  margin-bottom: 3rem;
+  font-weight: 800;
+}
+
+.container2{
+  width: 70vw;
+  margin: auto;
+}
+
+#info img{
+  width: 100%;   
+    }
+
+    #info h2{
+      font-size: 2rem;
+      font-weight: 900;
+
+    }
+
+#info p {
+  color: #4C6759;
+  font-size: 1.4rem;
+}
+
+
+#info button{
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  background-color: #CD8A56;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+
+  font-weight: 600;
+}
+
+
+#info a{
+  text-decoration: none;
+  color:white;
+  font-weight: bold;}
+
+  @media screen and (max-width:480px) {
+    .container2{
+      width: 100vw;
+      margin: auto;
+    }
+    #info .flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,1)), url("../img/rafael-idrovo-espinoza-K7zGK78zfnQ-unsplash 1woofing.jpg"); 
+      color: white;
+    }
+
+    #info h2{
+      font-size: 3rem;
+      font-weight: 900;
+
+    }
+    #info p {
+      color: white;
+      font-size: 2rem;
+    }
+    
+
+    #info .flex:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,1)), url("../img/Tripster.jpg"); 
+      color: white;
+      background-size: cover;
+    }
+
+    #info .flex-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      
+    
+    }
+    #info button{
+      font-size: 2rem;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      background-color: #CD8A56;
+      border: none;
+      font-family: 'Open Sans', sans-serif;
+    
+      font-weight: 600;
+    }
+
+    #info .container-image {
+      display: none;
+    }
   }
-  
-  #info .flex-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1.5rem;
-  
-  }
-  #info{
-    margin-bottom: 3rem;
-    font-weight: 800;
-  }
-  
-  #info img{
-    width: 100%;    
-  }
-  
-  #info .container{
-    width: 70vw;
-    margin: auto;
-  }
-  
-  
-  #info button{
+   /*WOOFING*/
+
+   #wwoofing-presentation .principes {
     background-color: #CD8A56;
-    font-family: "Open Sans", bold  !important ;
-    height: 52px;
-    width: 203px; 
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;   
-    border-radius: 5px;
-    text-decoration: none; 
-    margin-top: 2rem; 
-  }
-  #info a{
-    text-decoration: none;
-    color:white;
-    font-weight: bold;
-  }
-  
-  /* FOOTER*/
-  
-  footer {
-    background-color: #678073 ;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-  }
-  footer .row-one{
-    padding-top: 60px;
-  }
-  footer .container{
-    width: 70vw;
-    margin: auto;
-  }
-  
-  footer .side-footer h3 {
-    font-weight: 600;
-  
-  }
-  footer #contact-footer img{
-  width: 41px ;
-  height: fit-content;
-  margin: 10px;
-  }
-  
-  footer #contact-footer p {
-    margin: 0;
-  }
-  footer #contact-footer {
-    margin-bottom: 40px;
-  }
-  footer .contact-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-style: Medium;
-    font-size: 21px;
-  }
-  
-  footer .RS-picto {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  footer #RS-footer img{
-    width: 61px ;
-    height: fit-content;
-    margin-right: 40px;
-    margin-top: 20px;
-  }
-  
-  footer #form-footer form{
+    padding: 5%;
+ 
     display: flex;
     flex-direction: column;
-  }
-  footer #form-footer input{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-  }
-  footer #form-footer textarea {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-  }
-  footer #form-footer input[type=submit] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    background-color: #CD8A56 ;
-    color: white;
-    border: none;
-    box-shadow: none;
-  }
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+      }
+      #wwoofing-presentation .contrepartie {
+        background-color: #E5E5E5;
+        padding: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+      }
+      #wwoofing-presentation h3 {
+    font-size: 3REM;
+    font-weight: 900;
+    text-align: center;
+      }
+    
+      #wwoofing-presentation p {
+        font-size: 1.5REM;
+        font-weight: 400;
+        text-align: center;
+        margin: 5%;
+          }
+          #wwoofing-presentation img {
+            width: 30%;
+          }
+          #solution {
+            padding: 5% 0;
+          } 
+
+      #solution h3{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 4rem;
+        font-weight: 900;
+        padding-bottom: 5%;
+        color: #886C52;
+      }
+      #solution img{
+        width: 70%;
+
+
+      }
+    #solution p{
+      font-family: 'Open Sans', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 400;
+        padding: 1rem;
+    }
+    #solution .col-4{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #solution .col-8{
+      padding: 0 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    #avantages {
+      background-color: #886C52;
+      padding: 5%;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+    }
   
-  footer .checkbox-conditions {
+    #avantages h3{
+      font-family: 'Open Sans', sans-serif;
+        font-weight: 900;
+        font-size: 4rem;
+        padding-bottom: 3%;
+        text-align: center;
+    }
+    #avantages h4{
+      font-weight: 700;
+    }
+    #avantages .container{
+      background-color: white;
+      width: 60vw;
+      margin: auto;
+      border-radius: 20px;
+      padding:3% 0
+    }
+    #avantages .legume {
+      position: absolute;
+      right: 0%;
+    }
+    #avantages .avantages {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #avantages img{
+      margin-bottom: 2%;
+    }
+    
+    
+    @media screen and (max-width:480px)  {
+
+      #solution .col-0{
+        display: flex;
+        justify-content: center;
+      }
+
+      #solution .col-12{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 5%;
+      }
+      #solution h3{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 3rem;
+        font-weight: 900;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        color: #886C52;
+      }
+
+      #solution p{
+        font-family: 'Open Sans', sans-serif;
+          font-size: 1.7rem;
+          font-weight: 400;
+          padding: 1rem;
+      }
+
+      #avantages {
+        background-color: #886C52;
+        padding: 5%;
+      }
+      #avantages .container{
+        background-color: white;
+        width: 90vw;
+        margin: auto;
+        border-radius: 20px;
+        padding:10% 8%
+      }
+      #avantages h3{
+        margin-bottom: 10%;
+      }
+
+      #avantages h4{
+        font-weight: 800;
+        color: #886C52;
+        font-size: 2.5rem;
+      }
+      #avantages p{
+        font-size: 1.8rem;
+      }
+      #avantages .avantages {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 9%;
+      }
+      #avantages img{
+        width: 70%;
+        height: fit-content;
+        margin-bottom: 3%;
+
+      }
+      #wwoofing-presentation .principes {
+        background-color: #CD8A56;
+        padding: 5%;
+
+        display: flex;
+        flex-direction: column;
+      
+        align-items: center;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.1rem;
+        color: white;
+          }
+          #wwoofing-presentation h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            text-align: center;
+              }
+    }
+    /* FOOTER*/
+    
+    footer {
+      background-color: #678073 ;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+    }
+    footer .row-one{
+      padding-top: 60px;
+    }
+    footer .container{
+      width: 70vw;
+      margin: auto;
+    }
+    
+    footer .side-footer h3 {
+      font-weight: 600;
+      font-size: 3.5rem;
+      margin-bottom: 2.5rem;
+    
+    }
+    footer #contact-footer img{
+    width: 41px ;
+    height: fit-content;
+    margin: 10px;
+    }
+    
+    footer #contact-footer p {
+      margin: 0;
+    }
+    footer #contact-footer {
+      margin-bottom: 40px;
+    }
+    footer .contact-info {
       display: flex;
       flex-direction: row;
       align-items: center;
+      font-style: Medium;
+      font-size: 21px;
+    }
+    
+    footer .RS-picto {
+      display: flex;
+      flex-direction: row;
+    }
+    
+    footer #RS-footer img{
+      width: 61px ;
+      height: fit-content;
+      margin-right: 40px;
       margin-top: 20px;
-  }
-  footer .checkbox-conditions label{
-      font-size: 0.8rem;
-      font-style: italic;
-      width: 500px;
-  }
-  footer #newsletter-highlight {
+    }
+    
+    footer #form-footer form{
+      display: flex;
+      flex-direction: column;
+    }
+    footer #form-footer input{
+      width: 100%;
+      height: 5vh;
+      padding-left: 3%;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    
+    footer #form-footer input::placeholder{
+      font-size: 1.5rem;
+    }
+    
+    
+    
+    footer #form-footer textarea {
+      width: 100%;
+      height: 20vh;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    
+    footer #form-footer textarea::placeholder {
+      font-size: 1.5rem;
+    }
+    
+    footer #form-footer input[type=submit] {
+      width: 100%;
+
+      margin: 8px 0;
       background-color: #CD8A56 ;
-      padding: 5px;
-  }
-  
-  footer #form-footer input[type=checkbox] {
-      width: 80px;
-  }
-  footer #end-footer{
-      text-align: center;
-      margin-top: 90px;
-  }
-  footer a {
-      text-decoration: none;
       color: white;
-      text-align: center;
-      font-size: 1rem;
-  }
-  
-  @media screen and (max-width:992px) {
-    footer #form-footer{
-        margin-top: 61px;
+      border: none;
+      box-shadow: none;
+      font-size: 1.5rem;
+    }
+    
+    footer .checkbox-conditions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 20px;
+    }
+    footer .checkbox-conditions label{
+        font-size: 1rem;
+        font-style: italic;
+        width: 500px;
+    }
+    footer #newsletter-highlight {
+        background-color: #CD8A56 ;
+        padding: 5px;
+    }
+    
+    footer #form-footer input[type=checkbox] {
+        width: 80px;
+    }
+    footer #end-footer{
+        text-align: center;
+        margin-top: 90px;
     }
     footer a {
         text-decoration: none;
         color: white;
         text-align: center;
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
-    footer .RS-picto {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    
+    @media screen and (max-width:992px) {
+      footer #form-footer{
+          margin-top: 61px;
+      }
+      footer a {
+          text-decoration: none;
+          color: white;
+          text-align: center;
+          font-size: 1rem;
+      }
+      footer .RS-picto {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+      }
+      footer #RS-footer img{
+          width: 61px ;
+          height: fit-content;
+          margin: 4px;
+      }
     }
-    footer #RS-footer img{
-        width: 61px ;
-        height: fit-content;
-        margin: 4px;
+    
+    @media screen and (max-width:480px) {
+      footer .side-footer h3 {
+          font-weight: 600;
+          font-size: 4rem;
+      }
+      footer .container{
+          width: 90vw;
+          margin: auto;
+      }
+      footer .row-one{
+          padding-top: 20px;
+      }
+      footer #RS-footer img{
+          width: 61px ;
+          height: fit-content;
+          margin-top: 20px;
+      }
+      footer .side-footer p{
+        font-size: 2.5rem;
+      }
+      footer .checkbox-conditions label{
+        font-size: 1.5rem;
+        font-style: italic;
+        width: 500px;
+        margin-left: 5%;
     }
+    footer a {
+      text-decoration: none;
+      color: white;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 5%;
   }
-  
-  @media screen and (max-width:480px) {
-    footer .side-footer h3 {
-        font-weight: 600;
-        font-size: 2rem;
     }
-    footer .container{
-        width: 90vw;
-        margin: auto;
-    }
-    footer .row-one{
-        padding-top: 20px;
-    }
-    footer #RS-footer img{
-        width: 61px ;
-        height: fit-content;
-        margin-top: 20px;
-    }
-  }
-  
+
+
+
+
+
+      /******* Lodgings ****/
+  #cheminade .flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#cheminade .container{
+    width: 70vw;
+    margin: auto;
+}
+
+#cheminade .dropdown{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+button{
+    background-color: #CD8A56;
+    font-family: "Open Sans", bold  !important ;
+    width: 175px; 
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;   
+    border-radius: 5px;
+
+    text-align: center;
+    
+}
+
+.index-map{
+    background-color: pink;
+    height: 95%;
+    width: 450px;
+    position: relative;
+    margin-top: 2%;
+}
+#cheminade .col-5{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+}
+
+#cheminade .flex-column {
+    display: flex;
+    flex-direction: column;   
+    text-align: left;
+}
+
+.price{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 50px;
+    position: relative;
+    
+
+
+}
+
+.align-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divception{
+    margin-top: 3rem;
+}
+
+.map{
+    display: flex;    
+    justify-content:right;
+    margin-left: 45px;
+    margin-top: 60px;
+}
+
+.texte{
+    margin-left: 11px;
+    
+}
+
+.thing{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;      
+}
+
+#dropdownMenuButton{
+    background-color: #678073;
+    height: auto;
+   
+    padding-bottom: 5%;
+}
+
+    

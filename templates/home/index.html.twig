@@ -4,148 +4,201 @@
 
 {% block body %}
 
-<div class="green">
-    <section id="presentation">
-      <div class="container white">
-          <div class="text-align-center">
-              <h2>Qui sommes-nous ?</h2>
-              <p>Fondée en 2019, Tripee est une plateforme de référencement d’hébergements et de wwoofing, qui s’adresse à tous ceux qui souhaitent voyager et partager des expériences dans le respect de la planète </p>
-          </div>
-
-          <div class="argument">
-              <img class="picto-pres" src="{{ asset('img/earth.png')}}" alt="Ecologie">
-              <div>
-                  <h3>Eco responsable</h3>
-                  <p>Un réseau de professionnels et de particuliers au service de l’éco-responsabilité </p>
-              </div>
-          </div>
-
-          <div class="argument">
-              <img class="picto-pres" src="{{ asset('img/premium-quality 1.png')}}" alt="Labelisation">
-              <div >
-                  <h3>Labelisation</h3>
-                  <p>Une certification d’éco-responsabilité établie par les utilisateurs et pour les utilisateurs </p>
-              </div>
-          </div>
-
-          <div class="argument">
-              <img class="picto-pres remuneration" src="{{ asset('img/Frame 20.png')}}" alt="Economie circulaire">
-              <div>
-                  <h3>Rémuneration</h3>
-                  <p>3% du prix de votre réservation sur Tripee est reversée aux acteurs locaux et à leurs projets </p>
-
-              </div>
-          </div>
-
+<div class="contenu-classique">
+    
+  <section id="avantages-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+           <h3>Qui sommes-nous ?</h3>
+        </div>
       </div>
-    </section>
+      <div class="row">
+        <div class="col-md-4">
+        <div class="avantages">
+          <h4>Eco-responsable</h4>
+          <img src="{{ asset('img/Frame 14253.png') }}" alt="">
+          <p>Un réseau de professionnels et de particuliers au service de l’éco-responsabilité</p>
+      </div>
+        </div>
+        <div class="col-md-4">
+        <div class="avantages">
+          <h4>Labélisation</h4>
+          <img src="{{ asset('img/premium-quality 1.png') }}" alt="">
+          <p>Une certification d’éco-responsabilité établie par les utilisateurs et pour les utilisateurs</p>
+      </div>
+        </div>
+        <div class="col-md-4">
+      <div class="avantages">
+          <h4>Rémunération </h4>
+          <img src="{{ asset('img/Frame 20.png') }}" alt="">
+          <p>3% du prix de votre réservation sur Tripee est reversée aux acteurs locaux et à leurs projets</p>
+      </div>
 
-  </div>
-  
+    </div>
+  </section>
   <section id="must">
     <div>
-        <h2>Les incontournables</h2>
+        <h2>Les Incontournables</h2>
     </div>
     <div class="wrapper">
         <div class="card">
             <h3>Le châlet du lac</h3>
             <div class="must-description">
-                <img class="picto-geo" src="{{ asset('img/geo.png')}}" alt="Picto">
+                <img class="picto-geo" src="{{ asset('img/geo.png') }}" alt="Picto">
                 <p>Courchevel</p>
             </div>
         </div>
         <div class="card">
             <h3>Le châlet du lac</h3>
             <div class="must-description">
-                <img class="picto-geo" src="{{ asset('img/geo.png')}}" alt="Picto">
+                <img class="picto-geo" src="{{ asset('img/geo.png') }}" alt="Picto">
                 <p>Courchevel</p>
             </div>
         </div>
         <div class="card">
             <h3>Le châlet du lac</h3>
             <div class="must-description">
-                <img class="picto-geo" src="{{ asset('img/geo.png')}}" alt="Picto">
+                <img class="picto-geo" src="{{ asset('img/geo.png') }}" alt="Picto">
                 <p>Courchevel</p>
             </div>
         </div>
         <div class="card">
             <h3>Le châlet du lac</h3>
             <div class="must-description">
-                <img class="picto-geo" src="{{ asset('img/geo.png')}}" alt="Picto">
+                <img class="picto-geo" src="{{ asset('img/geo.png') }}" alt="Picto">
                 <p>Courchevel</p>
             </div>
 </section>
-  <section id="region">
-    <div class="container ">
-        <h1>Petit tour de France</h1>
-        <div class="row g-3">
-          <div class="col-6">
-            <div id="Bretagne" class="p-3 card-region">
-              <div class="glass">Bretagne</div>
-            </div>
-          </div>
-          <div class="col-3">
-            <div id="PACA" class="p-3 card-region">
-              <div class="glass">PACA</div>
-            </div>
-          </div>
-          <div class="col-3">
-            <div id="Auvergne" class="p-3 card-region">
-              <div class="glass">Auvergne</div>
-            </div>
-          </div>
-          <div class="col-5">
-            <div id="Normandie" class="p-3 card-region">
-              <div class="glass">Normandie</div>
-            </div>
-          </div>
-          <div class="col-7">
-            <div id="Côte-Basque" class="p-3 card-region">
-              <div class="glass">Côte Basque</div>
-            </div>
+<section id="region">
+  <div class="container ">
+      <h1>Petit tour de France</h1>
+      <div class="row g-3">
+        <div class="col-6">
+          <div id="Bretagne" class="p-3 card-region">
+            <div class="glass">Bretagne</div>
           </div>
         </div>
-    </div>
-</section>
-<section id="info">
-  <div class="container">
-      <div class="flex">
-          <div class="col-7 col-lg-7">
-              <img src="{{ asset('img/rafael-idrovo-espinoza-K7zGK78zfnQ-unsplash 1woofing.jpg')}}"  alt="">
+        <div class="col-3">
+          <div id="PACA" class="p-3 card-region">
+            <div class="glass">PACA</div>
           </div>
-          <div class="col-5 col-lg-5 flex-column">
-              <h2>Notre service woofing</h2>
-              <p>Aujourd'hui le Wwoofing recense en France plus de 500 hôtes et 14 000 Wwoofers par an. </p>
-              <p>Alors venez découvrir les aspects de l'agriculture biologique, de la biodynamique et de la
-                  permaculture</p>
-              <button> <a class="button" href="#">En savoir plus</a></button>
+        </div>
+        <div class="col-3">
+          <div id="Auvergne" class="p-3 card-region">
+            <div class="glass">Auvergne</div>
           </div>
+        </div>
+        <div class="col-5">
+          <div id="Normandie" class="p-3 card-region">
+            <div class="glass">Normandie</div>
+          </div>
+        </div>
+        <div class="col-7">
+          <div id="Côte-Basque" class="p-3 card-region">
+            <div class="glass">Côte Basque</div>
+          </div>
+        </div>
       </div>
-
-  
-
-
-      <div class="flex">
-          <div class="col-6 col-lg-5 flex-column">
-              <h2>Devenir un ambassadeur Tripster?</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor mauris odio augue dui, sapien
-                  nunc molestie. </p>
-              <p>Orci, convallis tempor ut ullamcorper ornare morbi quis velit. Diam, id fusce donec nisi
-                  volutpat praesent lacus, interdum.</p>
-              <button> <a class="button" href="#">En savoir plus</a></button>
-          </div>
-          <div class="col-6 col-lg-7">
-              <img src="{{ asset('img/Tripster.jpg')}}" alt="">
-          </div>
-      </div>
-    
   </div>
 </section>
+<section id="info">
+<div class="container2">
+    <div class="flex">
+        <div class="col-7 col-lg-7 container-image">
+            <img src="{{ asset('img/rafael-idrovo-espinoza-K7zGK78zfnQ-unsplash 1woofing.jpg') }}"  alt="">
+        </div>
+        <div class="col-12 col-lg-5 flex-column">
+            <h2>Notre plateforme <br> de Wwoofing</h2>
+            <p>Aujourd'hui le Wwoofing recense en France plus de 500 hôtes et 14 000 Wwoofers par an. </p>
+            <p>Alors venez découvrir les aspects de l'agriculture biologique, de la biodynamie et de la
+                permaculture</p>
+                <button type="button" class="btn btn-primary">En savoir plus</button>
+        </div>
+    </div>
 
+
+
+
+    <div class="flex ambassadeur">
+        <div class="col-12 col-lg-5 flex-column">
+            <h2>Devenir un Tripster ?</h2>
+            <p>Aujourd'hui le Wwoofing recense en France plus de 500 hôtes et 14 000 Wwoofers par an. </p>
+            <p>Alors venez découvrir les aspects de l'agriculture biologique, de la biodynamie et de la
+                permaculture</p>
+                <button type="button" class="btn btn-primary">En savoir plus</button>
+        </div>
+        <div class="col-6 col-lg-7 container-image">
+            <img src="{{ asset('img/Tripster.jpg') }}" alt="">
+        </div>
+    </div>
   
+</div>
+</section>
+</div>
+</div>
+<div id="section-woofing" >
 
+<section id="wwoofing-presentation" class="row">
+<div class="col-6 principes">
+  <h3>Les principes du Wwoofing</h3>
+  <p>Il s’agit de travailler au sein d’une ferme biologique en échange du gîte et du couvert. Le wwoofer a accès, en contrepartie de sa force de travail, à un hébergement et des repas sur une courte ou plus longue durée (quelques jours à quelques mois).</p>
+  
+</div>
+<div class="col-6 contrepartie">
+  <h3>Hôtes et wwoofers </h3>
+  <p>Travailler dans une exploitation agricole biologique en woofing s’envisage comme un ensemble de missions définies à l’avance avec votre hôte. Les wwoofers n’ont pas d’obligation de rentabilité et n’ont aucun lien de subordination avec les hôtes.</p>
 
-    
+</div>
+
+</section>
+
+<section id="solution" class="row">
+<div class="col-0 col-lg-4">
+  <img src="{{ asset('img/Group 105.pngg') }}" alt="">
+</div>
+<div class="col-12 col-lg-8">
+  <h3>Une solution de voyage économique</h3>
+  <p>Comme chacun sait, disposer d’un toit à l’étranger et se nourrir revient cher en principe, surtout sur une longue période. Or, c’est là l’un des principaux avantages du woofing : il vous permet de réaliser de très importantes économies sur le prix global du voyage. Vos seuls frais de séjour sont le billet d’avion et les frais de loisirs que vous pourrez exposer par ailleurs (tourisme, activité, etc.).</p>
+  <p>
+  Vous pouvez ainsi apprendre plus facilement une langue, découvrir une région du monde inconnue, découvrir une nouvelle culture, mais également de vous former aux tâches agricoles. C’est d’ailleurs la raison d’être initial, du woofing, lequel se veut avant tout une occasion de transmettre au grand public le savoir-faire utilisé au sein d’une ferme biologique.
+</p>
+</div>
+</section>
+
+<section id="avantages">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+       <h3>Les avantages du Wwoofing</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+    <div class="avantages">
+      <h4>Initiez-vous</h4>
+      <img src="{{ asset('img/brouette.png') }}" alt="">
+      <p>Pas besoin d’être un fin connaisseur du compostage ou de l’apiculture !</p>
+  </div>
+    </div>
+    <div class="col-md-4">
+    <div class="avantages">
+      <h4>Créez du lien social</h4>
+      <img src="{{ asset('img/mountain-icon.png') }}" alt="">
+      <p>Le wwoofing est ouvert à tout le monde, quelque soit l’âge ou la nationalité.</p>
+  </div>
+    </div>
+    <div class="col-md-4">
+  <div class="avantages">
+      <h4>Economisez de l'argent </h4>
+      <img src="{{ asset('img/pig.png') }}" alt="">
+      <p>Le wwoofing exclut tout échange monétaire et propose justement un modèle alternatif.</p>
+  </div>
+
+</div>
+</section>
+
+</div>
 
 {% endblock %}
 
