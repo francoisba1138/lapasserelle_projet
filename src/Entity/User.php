@@ -92,6 +92,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $nickname;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
    
 
     public function __construct()
@@ -434,21 +439,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+   
 
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
 
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
 
     public function __toString(): string
-    {       
-        if($this->getNickname()){
+    {    if ($this->getFirstName()){
+        return $this->getFirstName();        
+        }elseif($this->getNickname()){
             return $this->getNickname();
-        }elseif ($this->getFirstName()){
-            return $this->getFirstName();
         }elseif($this->getEmail()){
             return $this->getEmail();
         }
 
      }
-
-
 
 }

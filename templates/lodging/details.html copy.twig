@@ -1,0 +1,180 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{lodging.title}}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1>{{lodging.title}}</h1>
+    <p>{{lodging.address.city}}</p>
+    <p>Hôte : {{lodging.host}}</p>
+    <p>{{lodging.description|raw}}</p>
+    <p>Note : {{lodging.rating}}</p>
+
+
+    {% for i in 1 .. lodging.rating %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path
+            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+    </svg>
+{% endfor %}
+{% for i in 1 .. (5 - lodging.rating) %}
+<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+    <path
+        d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
+</svg>
+{% endfor %}
+   
+    
+
+    <ul>
+
+    <h2>Activités</h2>
+    {% for activity in activities %}
+    <li><image src='{{activity.icon}}' alt=''/> - {{activity.title}} -  {{activity.description}}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Equipements</h2>
+    <ul>
+        {% for specification in specifications %}
+        {% if specification.type == 'equipement' %}
+            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Pratique</h2>
+    <ul>
+        {% for specification in specifications %}
+        {% if specification.type == 'pratique' %}
+            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Logement</h2>
+    <ul>
+        {% for specification in specifications %}
+        {% if specification.type == 'logement' %}
+            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Durée</h2>
+    <ul>
+        {% for specification in specifications %}
+        {% if specification.type == 'durée' %}
+            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Repas</h2>
+    <ul>
+        {% for specification in specifications %}
+        {% if specification.type == 'repas' %}
+            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Hôte</h2>
+    <ul>
+        {% for specification in specifications %}
+        {% if specification.type == 'hote' %}
+            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Langues</h2>
+    <ul>
+        {% for specification in specifications %}
+        {% if specification.type == 'langue' %}
+            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+  
+  
+
+
+
+
+
+
+
+
+
+
+    {#
+    <h2>Equipements</h2>
+    {% for equipement in equipements %}
+    <li><image src='{{equipement.icon}}' alt=''/> - {{equipement.label}} - {{equipement.type}}</li>
+    {% endfor %}
+    </ul>
+    #}
+
+
+
+
+    <div>Adresse (pour le plan) : {{lodging.address}}</div>
+    <style>
+        #map {
+            height:180px;
+        }
+    </style>
+    <div data-address="{{lodging.address.address|escape('js')}} , {{ lodging.address.zipcode }}" id="map"></div>
+
+    <script>
+        function search(address) {
+
+           
+            window.fetch('https://api-adresse.data.gouv.fr/search/?q=%27' + address)
+                .then(function (httpResponse) {
+                    return httpResponse.json();
+                })
+                .then(function (results) {
+                    let latitude = results.features[0].geometry.coordinates[0];
+                    let longitude = results.features[0].geometry.coordinates[1];
+                    map = L.map('map').setView([longitude, latitude], 16);
+                    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+                    }).addTo(map);                 
+
+                   
+                    L.marker([longitude, latitude]).addTo(map);
+                });
+        }
+  
+        search("{{lodging.address.address|escape('js')}} , {{ lodging.address.zipcode }}");
+
+        
+
+    </script>
+
+
+   
+
+    
+
+
+
+
+</div>
+{% endblock %}

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controller\Admin;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 use App\Entity\Activity;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -12,14 +14,13 @@ class ActivityCrudController extends AbstractCrudController
         return Activity::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
             TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('description'),
+            ImageField::new('icon')->setUploadDir('public/img/icons')->setBasePath('img/icons'),
+  
         ];
     }
-    */
 }

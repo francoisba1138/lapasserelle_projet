@@ -106,13 +106,7 @@ class LodgingController extends AbstractController
         $activities = $lodging->getActivities();
         $specifications = $lodging->getSpecifications();
 
-       //$equipements = getOneTypeOfSpecs('equipement',$specifications);
-
-   
-    
-        
-
-        //var_dump($activities);
+     
        
 
            
@@ -121,7 +115,7 @@ class LodgingController extends AbstractController
             'lodging' => $lodging,
             'activities' => $activities,
             'specifications' => $specifications,
-            //'equipements' => $equipements,
+            
 
         ]);
     }

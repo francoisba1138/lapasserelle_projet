@@ -1,139 +1,468 @@
 {% extends 'base.html.twig' %}
 
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/lodging.css')}}"> 
+{% endblock %}
+
 {% block title %}{{lodging.title}}{% endblock %}
 
 {% block body %}
 <style>
-    .example-wrapper {
-        margin: 1em auto;
-        max-width: 800px;
-        width: 95%;
-        font: 18px/1.5 sans-serif;
-    }
 
-    .example-wrapper code {
-        background: #F5F5F5;
-        padding: 2px 6px;
-    }
+ 
+
 </style>
 
-<div class="example-wrapper">
-    <h1>{{lodging.title}}</h1>
-    <p>{{lodging.address.city}}</p>
-    <p>Hôte : {{lodging.host}}</p>
-    <p>{{lodging.description|raw}}</p>
-    <p>Note : {{lodging.rating}}</p>
 
+<main>
+<section id="carousel-hebergement">
+    <div class="wrapper">
+        <div class="card">
+            <img src="{{ asset('/img/lodgings/') }}{{lodging.photo1}}" alt=""> 
+        </div>
+        <div class="card">
+            <img src="{{ asset('/img/lodgings/') }}{{lodging.photo2}}" alt="">
+        </div>
+        <div class="card">
+            <img src="{{ asset('/img/lodgings/') }}{{lodging.photo3}}" alt="">
+        </div>
+        
+        </div>
+    </div>
+</section>
+<div class="container">
 
-    {% for i in 1 .. lodging.rating %}
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-        <path
-            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
-    </svg>
-{% endfor %}
-{% for i in 1 .. (5 - lodging.rating) %}
-<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-    <path
-        d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
-</svg>
-{% endfor %}
    
+<section id="presentation-hebergement" class="row">
+    <div class="col-6 first-half">
+        <h1>{{lodging.title}}</h1>
+        <div class="flex-ville">
+            <img src="{{ asset('/img/geo-green.png') }}" alt="">
+            <h3>{{lodging.address.city}}</h3>
+        </div>
+        <div class="flex-atout">
+            {% for specification in specifications %}
+            {% if specification.type == 'atouteco' %}
+                <h4>{{specification.label}}</h4>
+            {% endif %}
+            {% endfor %}        
+          
+        </div>
+    </div>
+    <div class="col-6 second-half">
+        <div class="center">
+            {% if lodging.certified %}
+                <img id="label-icone" src="{{ asset('/img/Icone label.png') }}" alt="">
+            {% endif %}
+
+            <div class="rating">
+                {% if lodging.rating %}
+                {% for i in 1 .. lodging.rating %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                    <path
+                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                    </svg>
+                {% endfor %}
+                {% for i in 1 .. (5 - lodging.rating) %}
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                    <path
+                        d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
+                    </svg>
+                {% endfor %}
+            {% endif %}           
+        </div>
+
+        <div class="center">
+            <img id="vignette-hote" src="{{ asset('/img/user/') }}{{lodging.host.photo}}" alt="">
+            <p>{{lodging.host}}</p> 
+        </div>
+    </div>
+</section>
+</div>
+<div class="container">
+<section id="description-hebergement">
+    <div class="row">
+    <div class=col-6>
+        <div>
+            <h2>Description</h2>
+            {{lodging.description|raw}}
+        </div>
+        <div class="center-proposition">
+                <h2>Ce que ce logement propose</h2>
+
+                <div class="row">
+                    {% for specification in specifications %}
+                    {% if specification.type == 'equipement' %}
+
+                    <div class="col-6 proposition">
+                        <img src="{{ asset('/img/icons/') }}{{specification.icon}}" alt="">
+                        <p>{{specification.label}}</p>
+                    </div>                  
+
+                    {% endif %}
+                    {% endfor %}
+                </div>
+              
+                <button>Voir plus</button>
+        </div>
+    </div>
+    <div class="col-6 recap-reservation" >
+        <div class="recap-green">
+            <h3>Réservation</h3>
+            <hr>
+            <p>{{lodging.price|number_format(2, ',', ' ')}}€ / Nuit</p>
+            <label for="">Dates</label>
+            <div class="date-picker" >
+                <input type="date" class="form-control" placeholder="Date de départ" aria-label="Last name">
+                <input type="date" class="form-control" placeholder="Date de départ" aria-label="Last name">
+            </div>
+            <div class="voyageurs">
+                <label for="">Voyageurs</label>
+                <input type="number" class="form-control" value="1" aria-label="Last name">
+            </div>
+            <hr>
+            <h3>Conditions d'annulation</h3>
+            <div class="annulation-radio">
+                <input id="Non-remboursable" type="radio"name="Remboursement" value="Non-remboursable">
+                <label for="Non-remboursable">Non-remboursable</label>
+            </div>
+            <div class="annulation-radio">
+                <input id="Remboursable" type="radio" name="Remboursement" value="Remboursable">
+                <label for="Remboursable">Remboursable <span>(+30€)</span></label>
+            </div>
+            <p class="condition-annulation"> Annulation gratuite avant le 10 déc.. Annulez avant le 15 déc. et obtenez un remboursement de 50%, déduction faite de la première nuit et des frais de service.
+            </p>
+            <hr>
+            <div class="total">
+                <p>Total</p>
+                <p>160€</p>
+            </div>
+            <button>Réserver</button>
+        </div>
+    </div>
+</div>
+</section>
+<div id='map' class="mt-3" style='width:100%; height:450px' ></div>
+<section id="notes">
+    <div class="flex space-around">
+        <section class="notes">
+                <div>
+                    <h2>Propreté</h2>
+                    <div class="flex">
+                    <div class="ui-progress-bar ui-container">
+                        <div class="ui-progress" style="width: 92%;">
+                            <span class="ui-label" style="display:none;">Processing <b class="value">79%</b></span>
+                          </div><!-- .ui-progress -->
+                    </div><!-- #progress_bar -->
+                        <span class="progress-note">
+                            4,6
+                        </span>
+                    </div>
+                </div><!-- #container -->
+                <div>
+                    <h2>Communication</h2>
+                    <div class="flex">
+                    <div class="ui-progress-bar ui-container">
+                        <div class="ui-progress" style="width: 85%;">
+                            <span class="ui-label" style="display:none;">Processing <b class="value">79%</b></span>
+                          </div><!-- .ui-progress -->
+                    </div><!-- #progress_bar -->
+                        <span class="progress-note">
+                            4,5
+                        </span>
+                    </div>
+                </div><!-- #container -->
+                <div>
+                    <h2>Arrivée</h2>
+                    <div class="flex">
+                    <div class="ui-progress-bar ui-container">
+                        <div class="ui-progress" style="width: 95%;">
+                            <span class="ui-label" style="display:none;">Processing <b class="value">79%</b></span>
+                          </div><!-- .ui-progress -->
+                    </div><!-- #progress_bar -->
+                        <span class="progress-note">
+                            4,9
+                        </span>
+                    </div>
+                </div><!-- #container -->
+        </section>
     
+        <section class="notes">
+                <div>
+                    <h2>Précision</h2>
+                    <div class="flex">
+                    <div class="ui-progress-bar ui-container">
+                        <div class="ui-progress" style="width: 92%;">
+                            <span class="ui-label" style="display:none;">Processing <b class="value">79%</b></span>
+                          </div><!-- .ui-progress -->
+                    </div><!-- #progress_bar -->
+                        <span class="progress-note">
+                            4,6
+                        </span>
+                    </div>
+                </div><!-- #container -->
+                <div>
+                    <h2>Emplacement</h2>
+                    <div class="flex">
+                    <div class="ui-progress-bar ui-container">
+                        <div class="ui-progress" style="width: 85%;">
+                            <span class="ui-label" style="display:none;">Processing <b class="value">79%</b></span>
+                          </div><!-- .ui-progress -->
+                    </div><!-- #progress_bar -->
+                        <span class="progress-note">
+                            4,5
+                        </span>
+                    </div>
+                </div><!-- #container -->
+                <div>
+                    <h2>Qualité-prix</h2>
+                    <div class="flex">
+                    <div class="ui-progress-bar ui-container">
+                        <div class="ui-progress" style="width: 95%;">
+                            <span class="ui-label" style="display:none;">Processing <b class="value">79%</b></span>
+                          </div><!-- .ui-progress -->
+                    </div><!-- #progress_bar -->
+                        <span class="progress-note">
+                            4,9
+                        </span>
+                    </div>
+                </div><!-- #container -->
+        </section>
+    </div>
+    </section>
+<section id="commentaires">
+    <div class="container">
+        <h2 class="mb-1">Commentaires</h2>
 
-    <ul>
+        <div class="grid two-column one-column-tablet gap-1">
+            <article class="flex flex-column">
+                <div class="flex justify-between">
+                    <div class="flex flex-grow">
+                        <img class="avatar" alt="" src="{{ asset('/img/') }}elisa.jpg">
+                        <div class="flex flex-column justify-center">
+                            <h4>Alix Martin</h4>
+                            <div class="rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                                    <path
+                                        d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
+                                </svg>
 
-    <h2>Activités</h2>
-    {% for activity in activities %}
-    <li><image src='{{activity.icon}}' alt=''/> - {{activity.title}} -  {{activity.description}}</li>
-    {% endfor %}
-    </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thirteen secondary">Membre depuis juillet 2020</div>
+                </div>
+                <p class="thirteen justify">
+                    Incroyable...mais juste incroyable, j’en perd mes mots.
+                    Cette escapade m’a permis de me recentrer sur moi-même. Cela n’aura pas été possible sans
+                    Tripee. Merci à toute l’équipe et bravo !!
 
-    <h2>Equipements</h2>
-    <ul>
-        {% for specification in specifications %}
-        {% if specification.type == 'equipement' %}
-            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-
-    <h2>Pratique</h2>
-    <ul>
-        {% for specification in specifications %}
-        {% if specification.type == 'pratique' %}
-            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-
-    <h2>Logement</h2>
-    <ul>
-        {% for specification in specifications %}
-        {% if specification.type == 'logement' %}
-            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-
-    <h2>Durée</h2>
-    <ul>
-        {% for specification in specifications %}
-        {% if specification.type == 'durée' %}
-            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-
-    <h2>Repas</h2>
-    <ul>
-        {% for specification in specifications %}
-        {% if specification.type == 'repas' %}
-            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-
-    <h2>Hôte</h2>
-    <ul>
-        {% for specification in specifications %}
-        {% if specification.type == 'hote' %}
-            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-
-    <h2>Langues</h2>
-    <ul>
-        {% for specification in specifications %}
-        {% if specification.type == 'langue' %}
-            <li><image src='{{ asset('/img/icons/') }}{{specification.icon}}' alt=''/> - {{specification.label}}</li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-  
-  
+                </p>
+                <div class="flex justify-end mt-auto">
+                    <a class="black no-decoration fourteen" href="#">En savoir plus ></a>
+                </div>
+            </article>
 
 
 
 
+            <article class="flex flex-column">
+                <div class="flex justify-between">
+                    <div class="flex flex-grow">
+                        <img class="avatar" alt="" src="{{ asset('/img/') }}robert.jpg">
+                        <div class="flex flex-column justify-center">
+                            <h4>Robert Meunier</h4>
+                            <div class="rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                                    <path
+                                        d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thirteen secondary">Membre depuis juillet 2020</div>
+                </div>
+                <p class="thirteen justify">
+                    Tout ce que je recherchait, du calme et de la nature. le lieux est magnifique sans parler des
+                    collines qui l’entourent.
+                    Je recommande mille fois !
+
+
+                </p>
+                <div class="flex justify-end mt-auto">
+                    <a class="black no-decoration fourteen" href="#">En savoir plus ></a>
+                </div>
+            </article>
 
 
 
+            <article class="flex flex-column">
+                <div class="flex justify-between">
+                    <div class="flex flex-grow">
+                        <img class="avatar" alt="" src="{{ asset('/img/') }}mathieu.jpg">
+                        <div class="flex flex-column justify-center">
+                            <h4>Olivier Rousseau</h4>
+                            <div class="rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                                    <path
+                                        d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thirteen secondary">Membre depuis juillet 2020</div>
+                </div>
+                <p class="thirteen justify">
+                    Un grand merci à notre hote Christopher qui nous a trés chaleuresement accueillis et meme fait
+                    visiter les alentours du gite.
+                    Superbe expérience.
+
+
+                </p>
+                <div class="flex justify-end mt-auto">
+                    <a class="black no-decoration fourteen" href="#">En savoir plus ></a>
+                </div>
+            </article>
 
 
 
-    {#
-    <h2>Equipements</h2>
-    {% for equipement in equipements %}
-    <li><image src='{{equipement.icon}}' alt=''/> - {{equipement.label}} - {{equipement.type}}</li>
-    {% endfor %}
-    </ul>
-    #}
+            <article class="flex flex-column">
+                <div class="flex justify-between">
+                    <div class="flex flex-grow">
+                        <img class="avatar" alt="" src="{{ asset('/img/') }}Olivia.jpg">
+                        <div class="flex flex-column justify-center">
+                            <h4>Thomas Dupuis </h4>
+                            <div class="rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                                </svg>
+                                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                                    <path
+                                        d="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" />
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thirteen secondary">Membre depuis juillet 2020</div>
+                </div>
+                <p class="thirteen justify">
+                    Je ne connaissais pas la région, et j’ai decouvért une perle.
+                    Il y a de nombreuses activités autour et l’accueil a été des plus chaleureux !
 
 
+                </p>
+                <div class="flex justify-end mt-auto">
+                    <a class="black no-decoration fourteen" href="#">En savoir plus ></a>
+                </div>
+            </article>
+        </div>
+
+    </div>
 
 
-    <div>Adresse (pour le plan) : {{lodging.address}}</div>
+</section>
+<section id="activites">
+    <div class="container" id="rectangle">
+        <div class="text-center d-grid gap-2">
+            <h4>Activités à proximité</h4>
+        </div>
+        <div class="row" >
+
+            <div class="col-8 offset-2 space-between">
+                
+                <div class="row">
+
+                    {% for activity in activities %}
+                  
+
+                    <div class="col-4 text-center justify-content-evenly d-grid gap-3">
+                        <img src="{{ asset('/img/icons/') }}{{activity.icon}}" alt="">
+                        <h4>
+                            {{activity.title}}
+                        </h4>
+                        <p>
+                            {{activity.description}}
+                        </p>
+                    </div>
+
+                   {% endfor %}
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+</section>
+</div>
+</main>
+
     <style>
         #map {
             height:180px;

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use App\Entity\Lodging;
 use App\Entity\User;
@@ -29,8 +30,12 @@ class UserCrudController extends AbstractCrudController
    
        // yield IdField::new('id');
     yield TextField::new('email');
+    yield TextField::new('first_name');
+    yield TextField::new('last_name');
+    yield TextField::new('nickname');
     yield BooleanField::new('is_verified');
     yield AssociationField::new('address');
+    yield ImageField::new('photo', 'Photo')->setUploadDir('public/img/user')->setBasePath('img/user');
  
  
   //yield TextField::new('address.address', 'Numéro rue');

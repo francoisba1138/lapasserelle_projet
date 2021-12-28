@@ -3,16 +3,20 @@
     font-family: 'Open Sans', sans-serif;
     background-color: #ffffff00;
   }
+
   
+.hidden{
+
+  display : none;
+}
+
   @media screen and (max-width:480px) {
     html{
       font-size: 50%;
     }
   }
-  header {
-    padding: 0;
+  
 
-  }
   .switch-background {
   
     margin-top: 5rem;
@@ -75,9 +79,9 @@
   } 
   
   video {
-    object-fit: cover;
+
     width: 100vw;
-    height: 100%;
+    height: 110%;
     position: absolute;
     object-fit: cover;
     z-index: -1;
@@ -85,16 +89,17 @@
     left: 0;
   }
   .header{
-    padding-bottom: 0rem; 
+    padding-bottom: 5rem; 
   }
-    .brand-name {
-      color: black !important; 
-      font-size: 4rem;
-      font-family: Denton;
-      font-weight: 900;
-      margin-right: 3rem;
-      margin-left: 4%;
-    }
+  .brand-name {
+    color: rgb(0, 0, 0) !important; 
+    font-size: 4rem;
+    font-family: Denton;
+    font-weight: 900;
+    margin-right: 3rem;
+    margin-left: 4%;
+  }
+
     h1{
 
         font-size: 6rem;
@@ -107,8 +112,9 @@
     
    
     }
-    .nav-link {
+     .nav-link {
       font-size: 1.5rem;
+      color: rgb(0, 0, 0) !important;
     }
     .nav-menu{
       width: 40rem;
@@ -210,7 +216,7 @@
 
     video {
       object-fit: cover;
-      width: 100vw;
+      width: 100%;
       height: 710px;
       position: absolute;
     
@@ -258,7 +264,7 @@
     padding: 5%;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
-    padding-top: 15%;
+    padding-top: 5%;
 
   }
 

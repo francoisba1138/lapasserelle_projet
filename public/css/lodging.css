@@ -1,0 +1,511 @@
+body,
+#presentation-hebergement h1{
+  font-family: 'Open Sans', sans-serif;
+  
+}
+
+#presentation-hebergement h1{
+  color : black;
+  font-size: 40px;
+
+}
+
+
+main  {
+  background-color: white;
+  
+}
+
+#carousel-hebergement .wrapper{
+    max-height: 420px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    
+  }
+
+#carousel-hebergement .wrapper::-webkit-scrollbar {
+    display: inline;
+    
+  }
+  
+#carousel-hebergement .wrapper::-webkit-scrollbar-button {
+    display: block;
+  }
+  
+#carousel-hebergement .card{
+    min-width: 661px;
+    height: 377px;
+    border: none;
+    border-radius: 15px;
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 1rem;
+
+  }
+
+
+  #carousel-hebergement .card:nth-child(1){
+    background-image: url(../Asset/Hebergement-2.jpg) ;
+  }
+#carousel-hebergement .card:nth-child(2){
+    background-image: url(Asset/Hebergement-2.jpg) ;
+  }
+
+#carousel-hebergement .card:nth-child(3){
+    background-image: url(Asset/Hebergement-3.jpg) ;
+  }
+
+  iframe {
+    margin: 3% 0 0 0;
+  }
+
+
+#presentation-hebergement {
+  margin: auto;
+  padding: 2% 0;
+  }
+
+  #presentation-hebergement h1 {
+    font-weight: 900;
+  }
+
+#presentation-hebergement .flex-ville {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin:4% 0
+}
+
+#presentation-hebergement .flex-ville img{
+  width: 40px;
+}
+
+#presentation-hebergement .flex-atout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+}
+#presentation-hebergement .flex-atout H4{
+  background: #678073;
+  padding: 1% 2%;
+  border-radius: 20px;
+  color: white;
+}
+
+#presentation-hebergement #label-icone{
+  width: 80px;
+}
+
+#presentation-hebergement .first-half{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+#presentation-hebergement .second-half{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+}
+
+#presentation-hebergement .second-half p {
+  margin: 0;
+}
+#presentation-hebergement .second-half .center {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 7%;
+
+}
+#description-hebergement {
+display: flex;
+flex-direction: column;
+
+}
+
+#description-hebergement h2{
+  font-weight: 700;
+  padding-bottom: 3%;
+}
+
+#description-hebergement .center-proposition {
+  display: flex;
+  flex-direction: column;
+}
+
+#description-hebergement .proposition {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+#description-hebergement .proposition img {
+  width: 70px;
+  height: fit-content;
+}
+
+#description-hebergement button{
+  align-self: center;
+  text-decoration: none;
+  background-color: #CD8A56;
+  font-family: "Open Sans", bold  !important ;
+  border: none;
+  border-radius: 10px;
+  padding: 1% 4%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.center-proposition button{
+  margin-top: 5%;
+}
+
+
+#description-hebergement .recap-reservation{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#description-hebergement .recap-reservation hr{
+  height: 5px;
+  background-color: white;
+  border: none;
+}
+
+#description-hebergement .recap-reservation h3{
+  font-weight: 900;
+}
+
+#description-hebergement .recap-green{
+  background-color: #678073;
+  width: 60%;
+  padding: 5%;
+  color: white;
+}
+
+#description-hebergement .recap-green label{
+  padding: 5% 5% 5% 0;
+}
+
+#description-hebergement .recap-green  p:nth-child(2){
+  font-size: 2rem;
+  font-weight: 900;
+  
+}
+
+#description-hebergement .recap-green  p:nth-child(3){
+  font-size: 1.4rem;
+  font-weight: 900;
+  
+}
+
+#description-hebergement .recap-green  p:nth-child(1){
+  font-size: 2rem;
+  font-weight: 900;
+  
+}
+
+.condition-annulation {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+#description-hebergement .recap-green .voyageurs{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 13% 0 0 0;
+}
+
+#description-hebergement .recap-green .voyageurs input{
+width: 50px;
+}
+
+
+
+#description-hebergement .recap-green .total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between ;
+}
+
+#notes  #container {
+  margin: 0 auto;
+  width: 360px;
+  padding: 2em;
+
+
+}
+
+#notes .flex {
+  display: flex;
+  align-items: center;
+}
+
+#notes h2 {
+  font-weight: 700;
+}
+
+#notes .progress-note {
+  font-size: 14px;
+  margin-left: 0.75rem;
+  padding-bottom: 3px;
+}
+
+#notes .ui-progress-bar {
+  flex: 1;
+  background: #eee;
+}
+
+#notes .ui-progress span.ui-label {
+  font-size: 1.2em;
+  position: absolute;
+  right: 0;
+  line-height: 33px;
+  padding-right: 12px;
+  color: rgba(0,0,0,0.6);
+  text-shadow: rgba(255,255,255, 0.45) 0 1px 0px;
+  white-space: nowrap;
+}
+
+@-webkit-keyframes animate-stripes {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+   background-position: 44px 0;
+  }
+}      
+
+#notes .ui-progress-bar {
+  position: relative;
+  height: 23px;
+  padding-right: 2px;
+  border-radius: 35px;
+  -moz-border-radius: 35px;
+  -webkit-border-radius: 35px;
+  
+  
+  -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px #FFF;
+  -moz-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px #FFF;
+  box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px #FFF;
+}
+
+#notes .ui-progress {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 23px;
+  -moz-border-radius: 35px;
+  -webkit-border-radius: 35px;
+  border-radius: 35px;
+  -webkit-background-size: 44px 44px;
+  background-color: #678073;
+}
+
+#notes .flex {
+display: flex;
+justify-content:center;
+}
+
+#notes .space-around {
+justify-content: center;
+}
+
+#notes section.notes {
+width: 350px;
+margin: 3rem;
+}
+
+#notes section.notes > * + * {
+margin-top: 2rem;
+}
+
+/*Commentaires*/
+
+#commentaires h2, h4{
+  color: #485E53;
+}
+
+#commentaires h2 {
+  font-weight: 900;
+}
+
+#commentaires a{
+  font-weight:700;
+}
+
+#commentaires {
+  margin-top : 2%;
+}
+
+#commentaires .container {
+  width: 100vw;
+  margin: auto;
+}
+
+#commentaires article {
+  border: 1px solid #e3e7f4;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0.5px 1px 1px hsl(0deg 0% 50% / 0.7);
+  margin: 2%;
+}
+
+#commentaires .flex {
+  display: flex;
+  /* ajoute par default */
+  flex-wrap: wrap;/*  */
+
+}
+
+#commentaires .flex-basis-50 {
+  flex: 50%;
+}
+
+#commentaires .flex-column {
+  flex-direction: column;
+}
+
+#commentaires .flex-grow {
+  flex: 1;
+}
+
+#commentaires .grow-0 {
+  flex: 0;
+}
+
+#commentaires .flex-wrap {
+  flex-wrap: wrap;
+}
+
+#commentaires .justify {
+  text-align: justify;
+}
+
+#commentaires .align-stretch {
+  align-items: stretch;
+}
+
+#commentaires .align-center {
+  align-items: center;
+}
+
+#commentaires .justify-end {
+  justify-content: flex-end;
+}
+
+#commentaires .justify-center {
+  justify-content: center;
+}
+
+#commentaires .justify-between {
+  justify-content: space-between;
+}
+
+#commentaires .black {
+  color: black;
+}
+#commentaires .no-decoration {
+  text-decoration: none;
+}
+
+
+#commentaires .thirteen {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+#commentaires .fourteen {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+#commentaires .grid {
+  display: grid;
+}
+
+#commentaires .two-column {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#commentaires .gap-1 {
+  gap: 1rem;
+}
+
+#vignette-hote{
+  width: 80px;
+  border-radius: 50%;
+}
+
+#commentaires .avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  margin-right: 0.75rem;
+}
+
+#commentaires h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+#commentaires .secondary {
+  color: hsl(215, 16%, 47%);
+}
+
+#commentaires .rating {
+  margin-top: 0.25rem;
+}
+
+#commentaires .mt-auto {
+  margin-top: auto;
+}
+
+#commentaires .mb-1 {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+  #commentaires .one-column-tablet {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+ /*ACTIVITES A PROXIMITE*/
+
+ #activites {
+   padding: 5% 0;
+ }
+
+#activites #rectangle{
+width: 990px;
+height: 300px;
+left: 361px;
+top: 3936px;
+background:#cd8a56;
+border-radius: 5px;
+padding-top: 10px;
+padding-bottom: 70px;
+
+}
+
+#activites h4, #activites p{
+  color: white;
+}
+
+  

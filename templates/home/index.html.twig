@@ -137,7 +137,7 @@
 </section>
 </div>
 </div>
-<div id="section-woofing" >
+<div id="section-woofing" class="hidden">
 
 <section id="wwoofing-presentation" class="row">
 <div class="col-6 principes">
@@ -199,6 +199,31 @@
 </section>
 
 </div>
+
+
+<script>
+
+let toggle = document.getElementById('toggle-section');
+console.log(toggle);
+
+let wwoofing = document.getElementById('section-woofing');
+let classic = document.querySelector('.contenu-classique');
+let videoWoofing = document.querySelector('.video-woofing');
+let videoClassic = document.querySelector('.video-classic');
+
+toggle.addEventListener('change', function(){
+
+  
+    classic.classList.toggle('hidden');
+    wwoofing.classList.toggle('hidden');
+    videoWoofing.classList.toggle('hidden');
+    videoClassic.classList.toggle('hidden');
+  
+  
+})
+
+</script>
+
 
 {% endblock %}
 

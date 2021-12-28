@@ -38,6 +38,7 @@ class LodgingCrudController extends AbstractCrudController
   
             yield TextField::new('title', 'Titre');
             yield TextEditorField::new('description');
+            yield TextEditorField::new('short_description');
             yield AssociationField ::new('host', 'propriétaire');
             yield AssociationField::new('address');
             yield AssociationField::new('activities');

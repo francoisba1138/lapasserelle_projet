@@ -35,7 +35,9 @@
 
 
   <header class=header>
-    <video src="{{ asset('video/AutumnSnowDrone7_1.mp4') }}" autoplay loop playsinline muted></video> <!-- VIDEO WOOFFING src="Asset/ColoradoCampingDrone16.mp4" --> 
+    <video   class="video-classic" src="{{ asset('video/AutumnSnowDrone7_1.mp4') }}" autoplay loop playsinline muted></video>
+    <video class="video-woofing hidden" src="{{ asset('video/ColoradoCampingDrone16.mp4') }}" autoplay loop playsinline muted></video>
+   
         <nav class="navbar navbar-expand-lg navbar-light glass">
             <div class="container-fluid">
               <a class="navbar-brand brand-name" href="{{path('home')}}">Tripee</a>
@@ -45,7 +47,7 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav col-3">
                   <li class="nav-item nav-menu">
-                    <a class="nav-link active" aria-current="page" href="{{path('home')}}">Qui sommes-nous ? </a>                  </li>
+                    <a class="nav-link active" aria-current="page" href="{{path('home')}}">Qui&nbsp;sommes&#8209nous&nbsp;? </a>                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#contact-footer">Contact</a>
                   </li>
