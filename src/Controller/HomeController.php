@@ -30,4 +30,26 @@ class HomeController extends AbstractController
 
         return new JsonResponse($lodgings);
     }
+
+ /**
+     * @Route("/mentions-legales", name="legal")
+     */
+    public function legal(): Response
+    {
+        return $this->render('home/legal.html.twig', [
+           
+        ]);
+    }
+
+     /**
+     * @Route("/recherche", name="search")
+     */
+    public function searchreact(): Response
+    {
+        return $this->render('home/search.html.twig', [
+           
+        ]);
+    }
+
+    
 }

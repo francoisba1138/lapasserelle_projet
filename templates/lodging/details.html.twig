@@ -1,8 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-nav.html.twig' %}
 
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{{asset('css/lodging.css')}}"> 
+<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 {% endblock %}
 
 {% block title %}{{lodging.title}}{% endblock %}

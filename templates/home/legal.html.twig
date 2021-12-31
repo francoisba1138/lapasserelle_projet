@@ -1,0 +1,104 @@
+{% extends 'base-nav.html.twig' %}
+
+{% block title %}Mentions Légales{% endblock %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+<link rel="stylesheet" href="{{ asset('css/legal.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<body>
+ 
+  <section id="paralax">
+      <img src="{{ asset('img/legal/bg-paralax.jpg') }}" id="bg" alt="">
+      <img src="{{ asset('img/legal/moon.png') }}" id="moon" alt="">
+      <img src="{{ asset('img/legal/mountain.png') }}" id="mountain">
+      <img src="{{ asset('img/legal/road.png') }}" id="road">
+      <h1 id="text">Mentions légales</h1>
+      
+  </section>
+  <section>
+      <h3>I - IDENTITÉ</h3>
+      <p>
+          
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, consequuntur tenetur distinctio quidem eaque reiciendis quisquam optio consequatur cum, commodi voluptas sit explicabo quos in quae perferendis quam a rerum.
+          Quisquam inventore ratione nemo earum assumenda laboriosam esse recusandae quam perspiciatis beatae cumque, porro atque rerum sit asperiores aliquid dignissimos. Quidem iusto voluptatem excepturi accusantium molestias ducimus facere minus non?
+          Sit nemo a quae voluptate est sed autem velit molestias earum? Quis iure et atque adipisci eum accusantium maiores aliquid commodi sed in non, quisquam ipsa aliquam inventore libero eligendi? 
+     </p>
+     <h3>II - PERSONNE MORALE </h3>
+      <p>
+          
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, consequuntur tenetur distinctio quidem eaque reiciendis quisquam optio consequatur cum, commodi voluptas sit explicabo quos in quae perferendis quam a rerum.
+          Quisquam inventore ratione nemo earum assumenda laboriosam esse recusandae quam perspiciatis beatae cumque, porro atque rerum sit asperiores aliquid dignissimos. Quidem iusto voluptatem excepturi accusantium molestias ducimus facere minus non?
+          Sit nemo a quae voluptate est sed autem velit molestias earum? Quis iure et atque adipisci eum accusantium maiores aliquid commodi sed in non, quisquam ipsa aliquam inventore libero eligendi? 
+     </p>
+     <h3>III - CONDITIONS D’UTILISATION </h3>
+      <p>
+          
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, consequuntur tenetur distinctio quidem eaque reiciendis quisquam optio consequatur cum, commodi voluptas sit explicabo quos in quae perferendis quam a rerum.
+          Quisquam inventore ratione nemo earum assumenda laboriosam esse recusandae quam perspiciatis beatae cumque, porro atque rerum sit asperiores aliquid dignissimos. Quidem iusto voluptatem excepturi accusantium molestias ducimus facere minus non?
+          Sit nemo a quae voluptate est sed autem velit molestias earum? Quis iure et atque adipisci eum accusantium maiores aliquid commodi sed in non, quisquam ipsa aliquam inventore libero eligendi? 
+     </p>
+     <h3>IV - INFORMATIONS </h3>
+      <p>
+          
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, consequuntur tenetur distinctio quidem eaque reiciendis quisquam optio consequatur cum, commodi voluptas sit explicabo quos in quae perferendis quam a rerum.
+          Quisquam inventore ratione nemo earum assumenda laboriosam esse recusandae quam perspiciatis beatae cumque, porro atque rerum sit asperiores aliquid dignissimos. Quidem iusto voluptatem excepturi accusantium molestias ducimus facere minus non?
+          Sit nemo a quae voluptate est sed autem velit molestias earum? Quis iure et atque adipisci eum accusantium maiores aliquid commodi sed in non, quisquam ipsa aliquam inventore libero eligendi? 
+     </p>
+     <h3>V - INTERACTIVITÉ </h3>
+      <p>
+          
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, consequuntur tenetur distinctio quidem eaque reiciendis quisquam optio consequatur cum, commodi voluptas sit explicabo quos in quae perferendis quam a rerum.
+          Quisquam inventore ratione nemo earum assumenda laboriosam esse recusandae quam perspiciatis beatae cumque, porro atque rerum sit asperiores aliquid dignissimos. Quidem iusto voluptatem excepturi accusantium molestias ducimus facere minus non?
+          Sit nemo a quae voluptate est sed autem velit molestias earum? Quis iure et atque adipisci eum accusantium maiores aliquid commodi sed in non, quisquam ipsa aliquam inventore libero eligendi? 
+     </p>
+  </section>
+  <script type="text/javascript">
+
+      let bg = document.getElementById ("bg");
+      let moon = document.getElementById ("moon");
+      let mountain = document.getElementById ("mountain");
+      let road = document.getElementById ("road");
+      let text = document.getElementById ("text");
+
+      window.addEventListener("scroll",function(){
+          var value = window.scrollY;
+
+          bg.style.top = value * 0.5 + "px";
+          moon.style.left = -value * 0.5 + "px";
+          mountain.style.top = -value * 0.1 + "px";
+          road.style.top = value * 0.15 + "px";
+          text.style.top = value * 2 + "px";
+
+
+      })
+  </script>
+  
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+ {#  <h1>Tripee</h1>#}
+    {# <a href="hebergement">Hébergements</a>#}
+
+   {# React  #}
+    {# <div id="root"></div> #}

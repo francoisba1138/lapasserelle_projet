@@ -21,6 +21,7 @@
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   
    {% block stylesheets %}
   {{ encore_entry_link_tags('app') }}
   {% endblock %}
@@ -29,93 +30,9 @@
   {% block javascripts %}
   {{ encore_entry_script_tags('app') }}
   {% endblock %}
-</head>
-
-<body>
 
 
-  <header class=header>
-    <video   class="video-classic" src="{{ asset('video/AutumnSnowDrone7_1.mp4') }}" autoplay loop playsinline muted></video>
-    <video class="video-woofing hidden" src="{{ asset('video/ColoradoCampingDrone16.mp4') }}" autoplay loop playsinline muted></video>
-   
-        <nav class="navbar navbar-expand-lg navbar-light glass">
-            <div class="container-fluid">
-              <a class="navbar-brand brand-name" href="{{path('home')}}">Tripee</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav col-3">
-                  <li class="nav-item nav-menu">
-                    <a class="nav-link active" aria-current="page" href="{{path('home')}}">Qui&nbsp;sommes&#8209nous&nbsp;? </a>                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#contact-footer">Contact</a>
-                  </li>
-                </ul>
-                <span class="col-6"></span>
-                <ul class="navbar-nav col-3 flex">
-                  <li class="nav-item">
-                    <img src="{{ asset('img/nav/coeur.png') }}" alt="Favoris">
-                  </li>
-                  <li class="nav-item">
-                    <img src="{{ asset('img/nav/message.png') }}" alt="Messages">
-                  </li>
-                  <li class="nav-item">
-                    <img src="{{ asset('img/nav/profil.png') }}" alt="Mon profil {% if app.user %}({{ app.user }}) {% endif %}">
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </nav>
-        <div class="center">
-          <h1>On va où ?</h1>
-      </div>
-        <div class="container switch-background">
-          <div class="col-12 toggle-checkbox">
-              <input type="checkbox" name="toggle-section" id="toggle-section" >
-              <div class="toggle-background glass" >
-                  <label for="toggle-section">Hébergement</label>
-                  <label for="toggle-section">Wwoofing</label>
-              </div>
-          </div>
-        </div>
-       
-        <div class="center">
-          <div id="searchbar" class="glass row g-3">
-            <form action="{{ path('lodgings') }}" method="post">
-              <div class="row g-3">
-                <div class="col-6 col-lg-3 champ">
-                  <label for="destination">Destination</label>
-                  <input type="text" class="form-control" id="destination" name="destination" placeholder="Où voulez-vous partir ?"
-                    aria-label="Destination">
-                </div>
-                <div class="col-6 col-lg-3 champ">
-                  <label for="">Dates</label>
-                  <div class="date-picker">
-                    <input type="date" class="form-control" name="startdate" placeholder="Date d'arrivée"
-                      aria-label="Date d'arrivée">
-                    <input type="date" class="form-control" name="enddate" placeholder="Date de départ"
-                      aria-label="Date de départ">
-                  </div>
-                </div>
-                <div class="col-6 col-lg-3 champ">
-                  <label for="travelersNb">Voyageurs</label>
-                  <input type="number" class="form-control" id="travelersNb" value="1" name="travelersNb" placeholder="1" aria-label="Last name">
-                </div>
-                <div class="col-6 col-lg-3 champ">
-                  <label id="label-transparent" for="Submit">Submit</label>
-                  <input type="submit" class="form-control" placeholder="Envoi" aria-label="Last name">
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>    
-
-
-
-  </header>
-
-
+  {% block header %}{% endblock %}
 
 
   {% block body %}{% endblock %}
@@ -170,7 +87,7 @@
       </div>
       <div class="row" id="end-footer">
         <div class="col-12 col-lg">
-          <a href="#">Mentions légales et CGU</a>
+          <a href="{{path('legal')}}">Mentions légales et CGU</a>
         </div>
         <div class="col-12 col-lg">
           <a href="#">CGV</a>

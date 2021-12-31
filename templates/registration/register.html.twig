@@ -1,4 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-nav.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/lodging.css')}}"> 
+<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+{% endblock %}
+
 
 {% block title %}Inscription{% endblock %}
 
@@ -8,7 +14,7 @@
     {% endfor %}
 
     <h1>Inscription</h1>
-
+<div class="container">
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.first_name, {
             label: 'Nom'
@@ -28,6 +34,8 @@
         {{ form_row(registrationForm.agreeTerms, {
             label: 'J\'accepte les conditions générales d\'utilisation'
         }) }}
-        <button type="submit" class="btn">Valider</button>
+        <button type="submit" class="btn btn-secondary mb-5">Valider</button>
     {{ form_end(registrationForm) }}
+
+</div>
 {% endblock %}

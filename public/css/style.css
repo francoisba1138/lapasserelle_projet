@@ -92,7 +92,7 @@
     padding-bottom: 5rem; 
   }
   .brand-name {
-    color: rgb(0, 0, 0) !important; 
+    color: rgb(0, 0, 0); 
     font-size: 4rem;
     font-family: Denton;
     font-weight: 900;
@@ -114,7 +114,7 @@
     }
      .nav-link {
       font-size: 1.5rem;
-      color: rgb(0, 0, 0) !important;
+      color: rgb(0, 0, 0);
     }
     .nav-menu{
       width: 40rem;
@@ -147,7 +147,7 @@
   .navbar li{
         font-size: 2rem;
         font-weight: 900;
-        color: white !important;
+        color: rgb(0, 0, 0);
         font-family: 'Open Sans', sans-serif;
         font-weight: 400;
   }
@@ -1149,7 +1149,7 @@ button{
 }
 
 .index-map{
-    background-color: pink;
+   
     height: 95%;
     width: 450px;
     position: relative;

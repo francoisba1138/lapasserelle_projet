@@ -5,5 +5,12 @@ main{
     background-color: white;
 }
 
+.divception img{
+    width: 285px;
+    height: 268px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
 
   

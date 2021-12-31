@@ -1,0 +1,80 @@
+body{
+    background: #678073;
+    min-height: 1500px;
+    
+}
+#paralax{
+    position: relative ;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h3{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    padding: 2% 5%;
+    font-size: 2.4rem;
+    color: white;
+}
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    padding: 0 8%;
+    font-size: 1.2rem;
+}
+
+#paralax::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #678073,transparent);
+    z-index: 10000;
+}
+
+#paralax::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #678073;
+
+    z-index: 100000;
+    mix-blend-mode: color;
+}
+
+#paralax img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#paralax #text {
+    position: relative;
+    left: 0;
+    color: white;
+    font-size: 7rem;
+    z-index: 1;
+    font-weight: 900;
+    z-index: 0;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: -20rem;
+
+}
+
+#paralax #road {
+    z-index: 2;
+}
+#paralax #mountain {
+    z-index: 1;
+}
+

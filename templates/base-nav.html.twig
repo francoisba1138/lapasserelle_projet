@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}{% endblock %}
+
+
+
+
+
+
+{% block header %}
+
+<nav class="navbar navbar-expand-lg navbar-light glass">
+  <div class="container-fluid">
+    <a class="navbar-brand brand-name" href="{{path('home')}}">Tripee</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav col-3">
+        <li class="nav-item nav-menu">
+          <a class="nav-link active" aria-current="page" href="{{path('home')}}">Qui&nbsp;sommes&#8209nous&nbsp;? </a>                  </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact-footer">Contact</a>
+        </li>
+      </ul>
+      <span class="col-6"></span>
+      <ul class="navbar-nav col-3 flex">
+        <li class="nav-item">
+          <img src="{{ asset('img/nav/coeur.png') }}" alt="Favoris">
+        </li>
+        <li class="nav-item">
+          <img src="{{ asset('img/nav/message.png') }}" alt="Messages">
+        </li>
+        <li class="nav-item">
+          <img src="{{ asset('img/nav/profil.png') }}" alt="Mon profil {% if app.user %}({{ app.user }}) {% endif %}">
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock %}

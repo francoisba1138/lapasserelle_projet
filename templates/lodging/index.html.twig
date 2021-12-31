@@ -1,10 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-nav.html.twig' %}
 
 {% block title %}Hébergements{% endblock %}
 
 {% block stylesheets %}
 
 <link rel="stylesheet" href="{{asset('css/lodgings.css')}}">
+<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
 {% endblock %}
 
@@ -73,7 +74,7 @@
                 <div class="divception">
                     <div class="flex">
                         <div class="Col-3">
-                            <img src="{{ asset('img/Gite de jacques cheminade.jpg') }}">
+                            <img src="{{ asset('img/lodgings/')}}{{lodging.photo1}}">
                         </div>
                         <div class="texte">
                             <div class="Col-3">

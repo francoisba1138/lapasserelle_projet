@@ -31,6 +31,7 @@ class UserCrudController extends AbstractCrudController
        // yield IdField::new('id');
     yield TextField::new('email');
     yield TextField::new('first_name');
+    yield TextField::new('password');
     yield TextField::new('last_name');
     yield TextField::new('nickname');
     yield BooleanField::new('is_verified');

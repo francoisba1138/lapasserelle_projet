@@ -1,3 +1,9 @@
+img, svg {
+  vertical-align: middle;
+ 
+}
+
+
 body,
 #presentation-hebergement h1{
   font-family: 'Open Sans', sans-serif;
@@ -21,7 +27,14 @@ main  {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+    justify-content: center;
     
+  }
+
+
+  #carousel-hebergement img{
+  object-fit: cover;
+  border-radius: 20px;
   }
 
 #carousel-hebergement .wrapper::-webkit-scrollbar {
