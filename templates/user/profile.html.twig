@@ -1,0 +1,55 @@
+{% extends 'base-nav.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+{{ dump(user) }}
+{{ dump(addresses) }}
+{{ dump(lodgings) }}
+
+
+
+  <p><img src="{{ asset('img/user/')}}{{ user.photo }}" alt=""/></p>
+
+      
+    <p>Prénom : {{ user.firstname }}</p>
+    <p>Identifiant : {{ user.nickname }}</p>
+        <p>Localisation : 
+      <ul>
+{% for address in addresses %}
+<li>
+{{ address.city }}
+  </li>
+{% endfor %}
+</ul>
+</p>
+
+
+{% if lodgings %}
+<p>Hebergements : 
+  <ul>
+{% for lodging in lodgings %}
+<li>
+  <a href="{{ path('lodging', {'id' : lodging.id }) }}">
+  {{ lodging.title }}
+</a>
+</li>
+{% endfor %}
+</ul>
+</p>
+{% endif %}
+
+
+
+
+
+    
+   
+
+
+
+  
+
+
+  {% endblock %}
