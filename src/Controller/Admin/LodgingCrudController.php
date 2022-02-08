@@ -43,6 +43,7 @@ class LodgingCrudController extends AbstractCrudController
             yield AssociationField::new('address');
             yield AssociationField::new('activities');
             yield AssociationField::new('specifications');
+            yield AssociationField::new('availabilities');
 
 
 

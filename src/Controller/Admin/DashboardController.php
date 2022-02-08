@@ -6,12 +6,14 @@ use App\Entity\User;
 use App\Entity\Address;
 use App\Entity\Specification;
 use App\Entity\Activity;
+use App\Entity\Availability;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 class DashboardController extends AbstractDashboardController
 {
@@ -37,7 +39,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Adresses', 'fas fa-list', Address::class);
         yield MenuItem::linkToCrud('Caracteristiques', 'fas fa-list', Specification::class);
         yield MenuItem::linkToCrud('Activités', 'fas fa-list', Activity::class);
-
+        yield MenuItem::linkToCrud('Disponibilités', 'fas fa-list', Availability::class);
 
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }

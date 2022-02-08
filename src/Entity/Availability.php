@@ -18,7 +18,7 @@ class Availability
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=lodging::class, inversedBy="availabilities")
+     * @ORM\ManyToOne(targetEntity=Lodging::class, inversedBy="availabilities")
      * @ORM\JoinColumn(nullable=false)
      */
     private $lodging;
@@ -73,4 +73,10 @@ class Availability
 
         return $this;
     }
+
+    public function __toString(): string
+       {
+           return "du " . $this->getStartDate()->format('d-m-Y-d') ." au " . $this->getEnddate()->format('d-m-Y');
+        }
+
 }
