@@ -26,55 +26,28 @@ class UserController extends AbstractController
         $id = $user->getId(); 
 
 
-       /* $user = $this->getDoctrine()
-        ->getRepository(User::class)
-        ->createQueryBuilder('u')
-        ->select('u')       
-        
-        ->join('u.address', 'a')
-        
-
-        ->Where('u.id = :id')
-        ->andWhere('a.user = u.id')
-     
-
-        ->setParameter('id', $id )
-
-        ->getQuery()
-        ->getSingleResult()
-        ;
-
-*/
+    
 
         $lodgings = $this->getDoctrine()
         ->getRepository(lodging::class)
         ->createQueryBuilder('l')
         ->select('l')       
-         
-        
 
         ->Where('l.host = :id')
        
-     
-
         ->setParameter('id', $id )
 
         ->getQuery()
         ->getResult()
         ;
-
-
-               
-        
-    
+          
 
         return $this->render('user/profile.html.twig',  [
           
             'user' => $user,
             'addresses' => $user->getAddress()->getValues(),
             'lodgings' => $lodgings
-        
-           
+    
     ]
 );
     }

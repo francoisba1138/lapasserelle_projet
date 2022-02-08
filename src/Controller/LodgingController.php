@@ -46,7 +46,9 @@ class LodgingController extends AbstractController
             $travelersNb =$_POST["travelersNb"];
             $post = true;
 
-            $lodgings = $this->getDoctrine()->getRepository(Lodging::class)->createQueryBuilder('l')
+            $lodgings = $this->getDoctrine()
+            ->getRepository(Lodging::class)
+            ->createQueryBuilder('l')
             ->select('l')
             ->join('l.address', 'a')
             ->Where('l.title LIKE :destination OR a.city LIKE :city OR l.description LIKE :description OR l.region LIKE :description')
